@@ -55,7 +55,7 @@
       <div class="col-md-5">
 
         <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" id="txtFechaInicio">
+          <input type="text" class="form-control" id="txtFecha">
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
