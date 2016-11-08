@@ -24,6 +24,12 @@
 <body data-spy="scroll" id="page-top">
 <br><br>
   <div class="row">
+    <div class="col-md-2 transladarIzquierda paddingTexto well">
+
+           <?php include("secciones/menuCuestionario.php") ?>
+
+     </div>
+
     <div class="col-md-6">
 
       <div class="form-group">
@@ -57,7 +63,10 @@
 
       </div>
     </div>
-
+    <br><br>
+    <div class="col-md-12 text-center">
+        <button type="button" name="button" class="btn btn-md btn-primary">Asignar cuestionario</button>
+    </div>
 
     </div>
   </div>

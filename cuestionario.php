@@ -37,7 +37,30 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <!--     <div class="col-md-3 transladarIzquierda paddingTexto">
+
+              <ul id="ulIntegrate"class="nav nav-sidebar colorNav" >
+                <li id="liCondGT" style="cursor:pointer">
+                    <a class="grisClaro texto3d" >
+                      <i class="fa fa-suitcase"></i> Condiciones generales de trabajo</a>
+                </li>
+                  <li id="liCapAdi">
+                      <a class="grisClaro texto3d" style="cursor:pointer">
+                        <i class="fa fa-male"></i> Capacitación y adiestramiento.
+                      </a>
+                  </li>
+                  <li id="liSegHig" style="cursor:pointer">
+                      <a class="grisClaro texto3d">
+                        <i class="fa fa-medkit"></i> Seguridad e higiene
+                      </a>
+                  </li>
+              </ul>
+              <br>
+              <a class="btn btn-md btn-primary btn-block" href="javascript:history.back()"><i class="fa fa-chevron-left"></i> Regresar</span></a>
+
+        </div>
+-->
+      <div class="col-md-9">
 
         <div class="well trasparenteClaroPlus animacionContenido hidden" id="pnlCheck">
           <div class="row">
@@ -244,29 +267,7 @@
 
       </div>
 
-    <!--   <div class="col-md-3 transladarIzquierda paddingTexto">
 
-            <ul id="ulIntegrate"class="nav nav-sidebar colorNav" >
-              <li id="liCondGT" style="cursor:pointer">
-                  <a class="grisClaro texto3d" >
-                    <i class="fa fa-suitcase"></i> Condiciones generales de trabajo</a>
-              </li>
-                <li id="liCapAdi">
-                    <a class="grisClaro texto3d" style="cursor:pointer">
-                      <i class="fa fa-male"></i> Capacitación y adiestramiento.
-                    </a>
-                </li>
-                <li id="liSegHig" style="cursor:pointer">
-                    <a class="grisClaro texto3d">
-                      <i class="fa fa-medkit"></i> Seguridad e higiene
-                    </a>
-                </li>
-            </ul>
-            <br>
-            <a class="btn btn-md btn-primary btn-block" href="javascript:history.back()"><i class="fa fa-chevron-left"></i> Regresar</span></a>
-
-      </div>
- -->
 
 
 
