@@ -65,7 +65,7 @@
     </div>
     <br><br>
     <div class="col-md-12 text-center">
-        <button type="button" name="button" class="btn btn-md btn-primary">Asignar cuestionario</button>
+        <button type="button" name="button" class="btn btn-md btn-primary" id="btnAsignar">Asignar cuestionario</button>
     </div>
 
     </div>
