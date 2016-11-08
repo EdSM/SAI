@@ -31,10 +31,10 @@ class Consultas {
 
   public function consultaInsertEditEliminar($consulta) {
       //  $this->validarSesion();
-        if ($this->validarAdmin) {
+      //  if ($this->validarAdmin) {
 
                       /****************************Consulta despues de validar *************/
-
+                      $this -> ConexionBD = $this->establecerConexion();
 
             $database = $this-> ConexionBD->conectarBD();
 
@@ -61,12 +61,12 @@ class Consultas {
 
                             /**************************** /Consulta despues de validar *************/
 
-      }else {     // $validarAdmin
+  /*    }else {     // $validarAdmin
         $response = array(
           'status' => 'ERROR',
           'message'=>'Verifique que su sesión sea administrador'
         );
-      }
+      }*/
 
     return $response;
   }

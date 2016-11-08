@@ -31,7 +31,7 @@ var slcCliente=$('#slcCliente'),
            $.each(res.data, function(k,o){
 
              slcCliente.append(
-               '<option value="'+o.entId+'">'+o.entNombre+'</option>'
+               '<option value="'+o.cliId+'">'+o.cliNombre+'</option>'
            );
            i++
 
@@ -73,7 +73,7 @@ var slcCliente=$('#slcCliente'),
            $.each(res.data, function(k,o){
 
              slcCuestionario.append(
-               '<option value="'+o.entId+'">'+o.entNombre+'</option>'
+               '<option value="'+o.cueId+'">'+o.cueNombre+'</option>'
            );
            i++
 
@@ -88,12 +88,12 @@ var slcCliente=$('#slcCliente'),
     }
 
     function agregarAplicacion(){
-      
+
       if (!validar()) {
         return false;
       }
       var editar = $.ajax({
-        url: '../php/municipios/agregarMunicipio.php',
+        url: 'php/aplicacion/agregarAplicacion.php',
         data: {
           idCliente : slcCliente.val(),
           idCuestionario : slcCuestionario.val(),
@@ -114,24 +114,10 @@ var slcCliente=$('#slcCliente'),
         }
 
         if ( resultado.status === 'OK' ){
-          limpiar();
-          getMunicipios();
-          swal({
-            title: "",
-            text: " ",
-            timer: 700,
-            type: "success",
-            showConfirmButton: true
-          });
+          alert(resultado.message);
         }
         else {
-          swal({
-            title: "",
-            text: resultado.message,
-            //timer: 800,
-            type: "error",
-            showConfirmButton: true
-          });
+          alert(resultado.message);
         }
     }
 
@@ -146,12 +132,12 @@ function validar(){
       slcCuestionario.focus();
       return false;
   }
-  if (fecha.val() == 0) {
+  if (txtFecha.val() == 0) {
       alert("Debe ingresar una fecha de aplicación.")
-      fecha.focus();
+      txtFecha.focus();
       return false;
   }
-
+return true;
 }
 
 $(document).on('ready', function(){

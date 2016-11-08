@@ -17,7 +17,7 @@
          $i=0;
          while($row = mysqli_fetch_array($result, MYSQL_BOTH)) {
 
-           $cliId = $row['cueId'];
+           $cueId = $row['cueId'];
            $cueNombre = $row['cueNombre'];
            $cueActivo= $row['cueActivo'];
            $cueMaterias = $row['cueMaterias'];
