@@ -7,7 +7,7 @@
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'INSERT INTO aplicacion (aplClientes, aplCuestionarios, aplFechaAplicacion) VALUES('.$idCliente.', '.$idCuestionario.', '.$fecha.');';
+          $consulta = 'INSERT INTO aplicacion (aplClientes, aplCuestionarios, aplFechaAplicacion) VALUES('.$idCliente.', '.$idCuestionario.', "'.$fecha.'");';
           $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }

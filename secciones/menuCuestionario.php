@@ -5,7 +5,7 @@
         Asignar cuestionario</a>
   </li>
     <li id="liCapAdi">
-        <a class="grisClaro texto3d" style="cursor:pointer">
+        <a class="grisClaro texto3d" style="cursor:pointer"  href="aplicar.php">
           <i class="fa fa-male"></i> Aplicar cuestionario.
         </a>
     </li>

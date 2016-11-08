@@ -33,7 +33,7 @@
     <div class="col-md-6">
 
       <div class="form-group">
-          <label for="slctNombreRev" class="col-md-4 control-label text-right"> Cliente:</label>
+          <label for="slctNombreRev" class="col-md-4 control-label text-right">Seleccionar cliente:</label>
             <div class="col-md-8">
               <select name="" id="slcCliente" class="form-control input-sm">
             </select>
@@ -50,20 +50,7 @@
 
       <br><br>
 
-      <div class="form-group" id="groupNueva1">
-      <label for="txtFechaInicio" class="col-md-4 control-label text-right">Fecha de aplicación: </label>
-      <div class="col-md-5">
-
-        <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" id="txtFecha">
-          <div class="input-group-addon">
-            <i class="fa fa-calendar"></i>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <br><br>
+  
     <div class="col-md-12 text-center">
         <button type="button" name="button" class="btn btn-md btn-primary" id="btnAsignar">Asignar cuestionario</button>
     </div>
@@ -76,7 +63,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="datepicker/js/bootstrap-datepicker.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/aplicar.js"></script>
 
 </body>
 </html>
