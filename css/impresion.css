@@ -1,0 +1,68 @@
+@page {
+  size: auto;
+  margin: 8% 3% 8% 3%;
+}
+#barraNavegacion{
+  display: none !important;
+}
+#sidebar-wrapper {
+  display: none !important;
+}
+#piePrincipal {
+  display: none !important;
+}
+
+body {
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+
+#wrapper{
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+}
+#page-content-wrapper{
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+}
+#container-fluid{
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+}
+.contenidoFichas{
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+
+}
+.pnlResultados{
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+}
+.contResultado{
+  float: none !important;
+  width: auto !important;
+  margin:  0 !important;
+  padding: 0 !important;
+}
+
+.img-sitio{
+  display: none !important;
+}
+
+/*a:after {
+  content: " (" attr(href) ") ";
+}*/
