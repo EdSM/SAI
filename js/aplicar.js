@@ -2,6 +2,9 @@ var slcCliente=$('#slcCliente'),
     slcCuestionario=$('#slcCuestionario'),
     txtFecha=$('#txtFecha'),
     btnAsignar=$('#btnAsignar');
+var btnAplicar=$('#btnAplicar'),
+    iniciarCuestionario=$('#iniciarCuestionario'),
+    pnlCheck = $('#pnlCheck');
 
     function getClientes(){
       var datos = $.ajax({
@@ -124,6 +127,7 @@ var slcCliente=$('#slcCliente'),
         }
     }
 
+
 function validar(){
   if (slcCliente.val() == 0) {
       alert("Debe seleccionar un cliente.")
@@ -143,8 +147,14 @@ function validar(){
 return true;
 }
 
+// ******************************************************* A P L I C A R ***********************************
+
+function aplicarCuestionario(){
+  pnlCheck.removeClass('hidden');
+}
+
 $(document).on('ready', function(){
   getClientes();
 });
-btnAsignar.on('click', agregarAplicacion);
+btnAplicar.on('click', aplicarCuestionario);
 slcCliente.change(getAplicacionCliente);

@@ -13,7 +13,7 @@
    }
    else{
      $idCliente = ($_POST['idCliente']);
-     $consulta="SELECT a.aplId, a.aplFechaAplicacion, c.cueNombre FROM aplicacion a, cuestionarios c WHERE a.aplClientes = 1 AND aplCuestionarios=cueId;";
+     $consulta="SELECT a.aplId, a.aplFechaAplicacion, c.cueNombre FROM aplicacion a, cuestionarios c WHERE a.aplClientes = $idCliente AND aplCuestionarios=cueId;";
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {
