@@ -75,141 +75,191 @@
 
     </div>
     <br>
-    <table class="table table-striped table-bordered table-condensed">
-      <tbody class="">
-        <tr>
+    <div class="row">
+      <div class="col-md-10">
 
 
-      <div class="row">
-        <div class="col-md-10 col-xs-12 text-justify">
-          <p class="animEscalarSimple formatoTexto4" id="pregunta">
-          </p>
-        </div>
-        <div class="col-md-1 col-xs-6 text-center">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre0" id="preSi0" value="1">
-              Sí
-            </label>
-          </div>
-        </div>
 
-        <div class="col-md-1 col-xs-6">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre0" id="preNo0" value="0">
-              No
-            </label>
-          </div>
-        </div>
+        <table class="table table-striped table-bordered table-condensed">
+          <tbody class="">
+            <tr>
+
+
+
+
+
+            <td class="col-md-9 col-xs-12 text-justify">
+              <p class="animEscalarSimple formatoTexto4" id="pregunta">
+              </p>
+            </td>
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre0" id="preSi0" value="1">
+                  Sí
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center ">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre0" id="preNo0" value="0">
+                  No
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center ">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre0" id="preNA0" value="0">
+                  No aplica
+                </label>
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td class="col-md-9 col-xs-12 text-justify">
+              <p class="animEscalarSimple formatoTexto4" id="pregunta1">
+              </p>
+            </td>
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre1" id="preSi1" value="1">
+                  Sí
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre1" id="preNo1" value="0">
+                  No
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center ">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre1" id="preNA1" value="0">
+                  No aplica
+                </label>
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td class="col-md-9 col-xs-12 text-justify">
+              <p class="animEscalarSimple formatoTexto4" id="pregunta2">
+              </p>
+            </td>
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre2" id="preSi2" value="0">
+                  Sí
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre2" id="preNo2" value="0">
+                  No
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center ">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre2" id="preNA2" value="0">
+                  No aplica
+                </label>
+              </div>
+            </td>
+         </tr>
+
+         <tr>
+            <td class="col-md-9 col-xs-12 text-justify">
+              <p class="animEscalarSimple formatoTexto4" id="pregunta3">
+              </p>
+            </td>
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre3" id="preSi3" value="1">
+                  Sí
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre3" id="preNo3" value="0">
+                  No
+                </label>
+              </div>
+            </td>
+            <td class="col-md-1 col-xs-6 text-center ">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre3" id="preNA3" value="0">
+                  No aplica
+                </label>
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td class="col-md-9 col-xs-12 text-justify">
+              <p class="animEscalarSimple formatoTexto4" id="pregunta4">
+              </p>
+            </td>
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre4" id="preSi4" value="1">
+                  Sí
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre4" id="preNo4" value="0">
+                  No
+                </label>
+              </div>
+            </td>
+
+            <td class="col-md-1 col-xs-6 text-center ">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="pre4" id="preNA4" value="0">
+                  No aplica
+                </label>
+              </div>
+            </td>
+
+          </tr>
+        </tbody>
+        </table>
+
       </div>
-      </tr>
-
-      <tr>
-      <div class="row">
-        <div class="col-md-10 col-xs-12 text-justify">
-          <p class="animEscalarSimple formatoTexto4" id="pregunta1">
-          </p>
-        </div>
-        <div class="col-md-1 col-xs-6 text-center">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre1" id="preSi1" value="1">
-              Sí
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-1 col-xs-6">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre1" id="preNo1" value="0">
-              No
-            </label>
-          </div>
-        </div>
-      </div>
-      </tr>
-
-      <tr>
-      <div class="row">
-        <div class="col-md-10 col-xs-12 text-justify">
-          <p class="animEscalarSimple formatoTexto4" id="pregunta2">
-          </p>
-        </div>
-        <div class="col-md-1 col-xs-6 text-center">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre2" id="preSi2" value="1">
-              Sí
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-1 col-xs-6">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre2" id="preNo2" value="0">
-              No
-            </label>
-          </div>
-        </div>
-      </div>
-     </tr>
-
-     <tr>
-      <div class="row">
-        <div class="col-md-10 col-xs-12 text-justify">
-          <p class="animEscalarSimple formatoTexto4" id="pregunta3">
-          </p>
-        </div>
-        <div class="col-md-1 col-xs-6 text-center">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre3" id="preSi3" value="1">
-              Sí
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-1 col-xs-6">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre3" id="preNo3" value="0">
-              No
-            </label>
-          </div>
-        </div>
-      </div>
-      </tr>
-
-      <tr>
-      <div class="row">
-        <div class="col-md-10 col-xs-12 text-justify">
-          <p class="animEscalarSimple formatoTexto4" id="pregunta4">
-          </p>
-        </div>
-        <div class="col-md-1 col-xs-6 text-center">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre4" id="preSi4" value="1">
-              Sí
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-1 col-xs-6">
-          <div class="radio">
-            <label>
-              <input type="radio" name="pre4" id="preNo4" value="0">
-              No
-            </label>
-          </div>
-        </div>
-      </div>
-      </tr>
-    </tbody>
-    </table>
+    </div>
 
     <div class="row">
       <br>

@@ -5,6 +5,32 @@ var slcCliente=$('#slcCliente'),
 var btnAplicar=$('#btnAplicar'),
     iniciarCuestionario=$('#iniciarCuestionario'),
     pnlCheck = $('#pnlCheck');
+var pregunta = document.getElementById("pregunta");
+var nPregunta=0,
+    btnContinuar=$('#btnContinuar');
+
+    var preguntas0 = ["1. Que haya presentado cambio de domicilio. ",
+                     "2. Cambio de denominación.",
+                     "3. Cambio de aumento o disminución de obligaciones, suspensión de actividades",
+                     "4. Fusión.",
+                     "5. Escisión.",
+                     "6. Verificar que se hayan aprobado: balance General",
+                     "7. Verificar que se hayan aprobado: estado de Resultados",
+                     "8. Verificar que se hayan aprobado: notas explicativas",
+                     "9. Verificar que se hayan aprobado: reporte de la gerencia",
+                     "10. Verificar que se hayan aprobado: reporte de los comisarios",
+                     "11. Verificar que la contabilidad se encuentre ubicada en su domicilio fiscal ",
+                     "12. En otro lugar autorizado por las autoridades fiscales",
+                     "13. Verificar que los sistemas y registros contables cumplan con los requisitos correspondientes",
+                     "14. Verificar que conserven los registros de la contabilidad por lo menos de los últimos cinco años.",
+                     "15. Verificar que se hayan presentado declaraciones anuales y provisionales del impuesto Sobre la Renta.",
+                     "16. Verificar que se hayan dictaminado los estados financieros consolidados ",
+                     "17. Verificar que se estén cumpliendo los demás requisitos de consolidación -arts. 57 y 58 de la Ley del Impuesto Sobre la Renta, entre otros.",
+                     "18. Verificar si han presentado estados financieros dictaminados por los últimos cinco años ",
+                     "19. Verificar si la empresa está siendo auditada por las autoridades fiscales ",
+                     "20. Existencia de algún convenio al que se haya adherido el contribuyente con las autoridades fiscales"
+                     ];
+
 
     function getClientes(){
       var datos = $.ajax({
@@ -151,6 +177,27 @@ return true;
 
 function aplicarCuestionario(){
   pnlCheck.removeClass('hidden');
+  mostrarPreguntas();
+}
+
+function mostrarPreguntas(){
+  if (nPregunta <20) {
+
+
+  pregunta.innerHTML = preguntas0[nPregunta];
+  nPregunta++;
+  pregunta1.innerHTML = preguntas0[nPregunta];
+  nPregunta++;
+  pregunta2.innerHTML = preguntas0[nPregunta];
+  nPregunta++;
+  pregunta3.innerHTML = preguntas0[nPregunta];
+  nPregunta++;
+  pregunta4.innerHTML = preguntas0[nPregunta];
+  nPregunta++;
+  }
+  else {
+    
+  }
 }
 
 $(document).on('ready', function(){
@@ -158,3 +205,4 @@ $(document).on('ready', function(){
 });
 btnAplicar.on('click', aplicarCuestionario);
 slcCliente.change(getAplicacionCliente);
+btnContinuar.on('click', mostrarPreguntas);

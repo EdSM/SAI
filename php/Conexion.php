@@ -4,15 +4,9 @@ class Conexion{
     $hostname = "localhost";
     $usuario = "root";
     $password = "root";
-    $basededatos = "nemachtiloprueba";
+    $basededatos = "auditoria_integral";
 
 
-
-  /*  $hostname = "db600421091.db.1and1.com";
-    $usuario = "dbo600421091";
-    $password = "z4obr81s";
-    $basededatos = "db600421091";
-*/
     $database = new mysqli($hostname, $usuario, $password, $basededatos);
     $database->set_charset('utf8');
     return($database);
