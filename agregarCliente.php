@@ -64,16 +64,45 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group ">
-              <label for="txtNombre" class="col-md-4 control-label text-right"> *Teléfono:</label>
+          <div class="form-group row">
+              <label for="txtNombre" class="col-md-4 control-label text-right"> *Calle:</label>
                 <div class="col-md-8">
-                  <input type="text" id="txtNumero" value="" class="form-control">
+                  <input type="text" id="txtCalle" value="" class="form-control">
               </div>
           </div>
         </div>
+
       </div>
 
       <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+              <label for="txtNombre" class="col-md-4 control-label text-right"> *Delegación/Municipio:</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtMunicipio" value="" class="form-control">
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+              <label for="txtNombre" class="col-md-4 control-label text-right"> *Entidad Federativa:</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtEntidad" value="" class="form-control">
+              </div>
+          </div>
+        </div>
+
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group ">
+              <label for="txtNombre" class="col-md-4 control-label text-right"> *Teléfono:</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtTelefono" value="" class="form-control">
+              </div>
+          </div>
+        </div>
         <div class="col-md-6">
           <div class="form-group row">
               <label for="txtNombre" class="col-md-4 control-label text-right"> Fax:</label>
@@ -82,6 +111,10 @@
               </div>
           </div>
         </div>
+
+      </div>
+
+      <div class="row">
         <div class="col-md-6">
           <div class="form-group ">
               <label for="txtNombre" class="col-md-4 control-label text-right"> *Correo electrónico:</label>
@@ -90,17 +123,7 @@
               </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group row">
-              <label for="txtNombre" class="col-md-4 control-label text-right"> Registro en la Cámara de Comercio:</label>
-                <div class="col-md-8">
-                  <input type="text" id="txtRegCamComercio" value="" class="form-control">
-              </div>
-          </div>
-        </div>
         <div class="col-md-6">
           <div class="form-group ">
               <label for="txtNombre" class="col-md-4 control-label text-right"> *Registro Federal de Contribuyentes:</label>
@@ -120,13 +143,23 @@
               </div>
           </div>
         </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+              <label for="txtNombre" class="col-md-4 control-label text-right"> Registro en la Cámara de Comercio:</label>
+                <div class="col-md-8">
+                  <input type="text" id="txtRegCamComercio" value="" class="form-control">
+              </div>
+          </div>
+        </div>
+
 
       </div>
 
       <div class="form-group">
          <label for="textHistoria" class="col-md-2 control-label"> Resumen de la historia de la sociedad :</label>
          <div class="col-md-10">
-             <textarea class="form-control" rows="6" id="textHistoria" placeholder="Resumen de la historia de la sociedad (desarrollo y actividad)" spellcheck="true"></textarea>
+             <textarea class="form-control" rows="6" id="txtHistoria" placeholder="Resumen de la historia de la sociedad (desarrollo y actividad)" spellcheck="true"></textarea>
+             <br>
          </div>
          <br>
       </div>
@@ -134,14 +167,19 @@
       <div class="form-group">
                <label for="textTuristica" class="col-md-2 control-label"> Estudios recientes realizados a la compañía y subsidiarias preparados por:</label>
                <div class="col-md-10">
-                 <textarea class="form-control" rows="6" id="txtEstudios" placeholder="Información turística del sitio arqueólogico" spellcheck="true"></textarea>
+                 <textarea class="form-control" rows="6" id="txtEstudios" placeholder="Estudios recientes realizados a la compañía y subsidiarias preparados por" spellcheck="true"></textarea>
+                 <br>
                </div>
              </div>
 
     <br><br><br>
-    <div class="col-md-12 text-center">
-        <button type="button" name="button" class="btn btn-md btn-primary" id="btnAsignar">Asignar cuestionario</button>
+    <div class="row">
+      <br><br>
+      <div class="col-md-12 text-center">
+          <button type="button" name="button" class="btn btn-md btn-primary" id="btnGuardar">Guardar</button>
+      </div>
     </div>
+
 
     </div>
   </div>
@@ -151,7 +189,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="datepicker/js/bootstrap-datepicker.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/agregarCliente.js"></script>
 
 </body>
 </html>
