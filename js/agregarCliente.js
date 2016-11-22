@@ -1,0 +1,12 @@
+var txtNombre=$'#txtNombre',
+    txtNombreAnterior=$('#txtNombreAnterior'),
+    txtDomicilio=$('#txtDomicilio'),
+    txtNumero=$('#txtNumero'),
+    txtFax=$('#txtFax'),
+    txtCorreo=$('#txtCorreo'),
+    txtRegCamComercio=$('#txtRegCamComercio'),
+    txtRfc=$('#txtRfc'),
+    txtInfonavit=$('#txtInfonavit'),
+    textHistoria=$('#textHistoria'),
+    txtEstudios=$('#txtEstudios'),
+    
