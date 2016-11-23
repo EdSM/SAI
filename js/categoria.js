@@ -11,9 +11,9 @@ var txtMateria=$('#txtMateria'),
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
 
-function getMaterias(){
+function getCategorias(){
   var datos = $.ajax({
-    url: 'php/materia/getTodoMaterias.php',
+    url: 'php/categoria/getTodoCategorias.php',
     type: 'get',
         dataType:'json',
         async:false
@@ -85,7 +85,7 @@ function getMaterias(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMaterias();
+          getCategorias();
           swal({
             title: "",
             text: " ",
@@ -167,7 +167,7 @@ function getMaterias(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMaterias();
+          getCategorias();
           cancelarEditar();
           swal({
             title: "",
@@ -220,7 +220,7 @@ function eliminarMateria(id){
     }
 
     if ( resultado.status === 'OK' ){
-      getMaterias();
+      getCategorias();
       swal({
         title: "",
         text: resultado.message,
@@ -267,7 +267,7 @@ function validar(){
 }
 
 $(document).on('ready', function(){
-  getMaterias();
+  getCategorias();
 });
 
 btnLimpiar.on('click',limpiar);
