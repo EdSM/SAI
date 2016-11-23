@@ -35,14 +35,6 @@
               <li> <!--   {{ HTML::link('/inicio2', Session::get('nombre')) }} --></li>
             <li class="dropdown">
               <!--    <a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Historial<b class="caret"></b></a> -->
-              <ul class="dropdown-menu">
-            <li>
-                  <a href="repSesPeriodo"><i class="fa fa-calendar-o"></i> Por período</a>
-                </li>
-                <li>
-                  <a href="repSesFuente"><i class="fa fa-newspaper-o"></i> Por fuente</a>
-                </li>
-              </ul>
              </li>
 
             <li class="dropdown">
@@ -85,12 +77,20 @@
             <div class="well" id="frmAgregar">
         <div class="form-horizontal" >
           <fieldset>
-            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Materia</legend>
+            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Tema</legend>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
+              <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Título del tema" maxlength="500" spellcheck="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="slctMateria" class="col-md-2 control-label"> Materia:</label>
+              <div class="col-md-10">
+                <select name="" id="slcMateria" class="form-control input-sm">
+                  </select>
               </div>
             </div>
 
@@ -101,10 +101,7 @@
                   <div class="col-md-4">
                       <button class="btn btn-primary btn-md" id="btnAgregar"><span class="glyphicon glyphicon-floppy-disk"></span> Agregar</button>
                   </div>
-                  <!--  <div class="col-md-4">
-                      <button class="btn btn-primary btn-md" id="btnLimpiar"><i class="fa fa-eraser" aria-hidden="true"></i> Limpiar</button>
-                  </div>
-                  -->
+
                   <div class="col-md-4">
                       <button class="btn btn-danger btn-md" id="btnLimpiar"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
                   </div>
@@ -120,12 +117,19 @@
       <div class="well hidden" id="formEditar">
   <div class="form-horizontal" >
     <fieldset>
-      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar materia</legend>
+      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar tema</legend>
 
       <div class="form-group">
-        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
+        <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
         <div class="col-md-10">
           <input type="text" class="form-control input-sm" id="txtMateriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="slctMateria" class="col-md-2 control-label"> Materia:</label>
+        <div class="col-md-10">
+          <select name="" id="slcMateriaE" class="form-control input-sm">
+            </select>
         </div>
       </div>
 
@@ -144,14 +148,14 @@
 
       <div class="row" id="tblRegistros">
         <div class="col-md-12">
-          <h3>Materias  registradas:</h3>
+          <h3>Temas registradas:</h3>
           <div class="table-responsive" id="tblServicios">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th class="col-md-1">No.</th>
                   <th class="col-md-1">Id</th>
-                  <th class="col-md-8">Materia</th>
+                  <th class="col-md-8">Tema</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->

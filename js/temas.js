@@ -7,9 +7,11 @@ var txtMateria=$('#txtMateria'),
     txtMateriaE=$('#txtMateriaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
-    idMAteriaE=$('#idMAteriaE');
+    idMAteriaE=$('#idMAteriaE'),
+    slcMateria=$('#slcMateria');
 var formEditar=$('#formEditar'),
-    frmAgregar=$('#frmAgregar');
+    frmAgregar=$('#frmAgregar'),
+    slcMateriaE=$('#slcMateriaE');
 
 function getMaterias(){
   var datos = $.ajax({
@@ -32,26 +34,16 @@ function getMaterias(){
     if ( res.status === 'OK' ){
 
        var i = 1;
+       slcMateria.html('');
+       slcMateriaE.html('');
        $.each(res.data, function(k,o){
 
-         tbodyRegistros.append(
-           '<tr>'+
-             '<td class="">'+i+'</td>'+
-             '<td class="">'+o.matId+'</td>'+
-             '<td class="">'+o.matNombre+'</td>'+
-
-             '<td class="text-center">'+
-               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.matId+'" '+
-               'style="cursor:pointer" title="Editar"></span>'+
-             '</td>'+
-
-             '<td class="text-center">'+
-             '<i id='+o.matId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
-             '</i></td>'+
-
-           '</tr>'
-       );
-       i++
+         slcMateria.append(
+          '<option value='+o.matId+'>'+o.matNombre+'</option>'
+        );
+        slcMateriaE.append(
+          '<option value='+o.matId+'>'+o.matNombre+'</option>'
+        );
 
      });
 
