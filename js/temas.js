@@ -52,12 +52,62 @@ function getMaterias(){
     }
 }
 
-    function agregarMateria(){
+function getTemas(){
+  var datos = $.ajax({
+    url: 'php/temas/getTodoTemas.php',
+    type: 'get',
+        dataType:'json',
+        async:false
+    }).error(function(e){
+        alert('Ocurrio un error, intente de nuevo');
+    }).responseText;
+
+    var res;
+    try{
+        res = JSON.parse(datos);
+    }catch (e){
+        alert('Error JSON ' + e);
+    }
+
+    tbodyRegistros.html('');
+    if ( res.status === 'OK' ){
+
+       var i = 1;
+       $.each(res.data, function(k,o){
+
+         tbodyRegistros.append(
+           '<tr>'+
+             '<td class="">'+i+'</td>'+
+             '<td class="">'+o.temId+'</td>'+
+             '<td class="">'+o.temNombre+'</td>'+
+             '<td class="">'+o.matNombre+'</td>'+
+
+             '<td class="text-center">'+
+               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.temId+'" '+
+               'style="cursor:pointer" title="Editar"></span>'+
+             '</td>'+
+
+             '<td class="text-center">'+
+             '<i id='+o.temId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
+             '</i></td>'+
+
+           '</tr>'
+       );
+       i++
+
+     });
+
+    }else{
+      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+    }
+}
+
+    function agregarTema(){
       if (!validar()) {
         return false;
       }
       var editar = $.ajax({
-        url: 'php/materia/agregarMateria.php',
+        url: 'php/tema/agregarTema.php',
         data: {
           nombreMateria:txtMateria.val()
         },
@@ -77,7 +127,7 @@ function getMaterias(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMaterias();
+          getTemas();
           swal({
             title: "",
             text: " ",
@@ -159,7 +209,7 @@ function getMaterias(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMaterias();
+          getTemas();
           cancelarEditar();
           swal({
             title: "",
@@ -212,7 +262,7 @@ function eliminarMateria(id){
     }
 
     if ( resultado.status === 'OK' ){
-      getMaterias();
+      getTemas();
       swal({
         title: "",
         text: resultado.message,
@@ -259,11 +309,12 @@ function validar(){
 }
 
 $(document).on('ready', function(){
+  getTemas();
   getMaterias();
 });
 
 btnLimpiar.on('click',limpiar);
-btnAgregar.on('click',agregarMateria);
+btnAgregar.on('click',agregarTema);
 
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarMateria);

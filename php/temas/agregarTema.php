@@ -1,11 +1,12 @@
 <?php
-  $nombreMateria = ($_POST['nombreMateria']);
+  $nombreTema = ($_POST['nombreTema']);
+  $materiaTema = ($_POST['materiaTema']);
 
         if (isset($nombreMateria)) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'INSERT INTO materias (matNombre, matActivo) VALUES("'.$nombreMateria.'", 1);';
+          $consulta = 'INSERT INTO temas (temNombre, matActivo, temMateria) VALUES("'.$nombreMateria.'", 1, "'.$materiaTema.'");';
           //$Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
