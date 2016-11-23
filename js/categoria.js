@@ -199,11 +199,11 @@ function limpiar(){
   txtCategoria.val('');
 }
 
-function eliminarMateria(id){
+function eliminarCategoria(id){
   var editar = $.ajax({
-    url: 'php/materia/eliminarMateria.php',
+    url: 'php/categoria/eliminarCategoria.php',
     data: {
-      idMateria:id
+      idCategoria:id
     },
     type: 'post',
     dataType:'json',
@@ -243,7 +243,7 @@ function eliminarMateria(id){
 function eliminar(){
   var id = $(this).attr('id');
   swal({
-    title: "¿Seguro de eliminar la materia seleccionada?",
+    title: "¿Seguro de eliminar la categoría seleccionada?",
     text: "",
     type: "warning",
     showCancelButton: true,
@@ -252,7 +252,7 @@ function eliminar(){
     closeOnConfirm: false
   },
   function(){
-    eliminarMateria(id);
+    eliminarCategoria(id);
   });
 }
 

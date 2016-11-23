@@ -1,21 +1,19 @@
 <?php
 
-  $idMateria = ($_POST['idMateria']);
-  $nombreMateria = ($_POST['nombreMateria']);
+  $idCategoria = ($_POST['idCategoria']);
 
-
-        if ((isset($idMateria)) && (isset($nombreMateria))) {
+        if (isset($idCategoria)) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'UPDATE materias SET matNombre = "'.$nombreMateria.'"  WHERE matId = '.$idMateria.' ;';
+          $consulta = 'DELETE FROM categorias WHERE catId = '.$idCategoria.' ;';
         //  $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
         else {
             $response = array(
               'status' => 'ERROR',
-              'message'=>'Faltan parámetros al solicitar petición'
+              'message'=>'Faltan parametros al solicitar petición'
             );
         }
 
