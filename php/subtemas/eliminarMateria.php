@@ -1,12 +1,13 @@
 <?php
-  $nombreEntidad = ($_POST['nombreEntidad']);
 
-        if (isset($nombreEntidad)) {
+  $idMateria = ($_POST['idMateria']);
+
+        if (isset($idMateria)) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'INSERT INTO entidades (entNombre) VALUES("'.$nombreEntidad.'");';
-          $Consultas -> validarSesion();
+          $consulta = 'DELETE FROM materias WHERE matId = '.$idMateria.' ;';
+        //  $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
         else {

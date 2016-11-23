@@ -18,6 +18,19 @@
       </a>
   </li>
   <li id="liCondGT" style="cursor:pointer">
+      <a class="grisClaro texto3d" href="temas.php" >
+        <i class="fa fa-align-justify" aria-hidden="true"></i>
+        Temas
+      </a>
+  </li>
+  <li id="liCondGT" style="cursor:pointer">
+      <a class="grisClaro texto3d" href="subtemas.php" >
+        <i class="fa fa-indent" aria-hidden="true"></i>
+        Subtemas
+      </a>
+  </li>
+
+  <li id="liCondGT" style="cursor:pointer">
       <a class="grisClaro texto3d" href="index.php" >
         <i class="fa fa-book" aria-hidden="true"></i>
         Asignar cuestionario
