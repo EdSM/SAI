@@ -3,8 +3,8 @@ var btnAgregar = $('#btnAgregar'),
     btnLimpiar=$('#btnLimpiar');
 var tbodyRegistros=$('#tbodyRegistros'),
     tblRegistros=$('#tblRegistros');
-var txtMateria=$('#txtMateria'),
-    txtMateriaE=$('#txtMateriaE'),
+var txtCategoria=$('#txtCategoria'),
+    txtCategoriaE=$('#txtCategoriaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
     idMAteriaE=$('#idMAteriaE');
@@ -37,16 +37,16 @@ function getCategorias(){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-             '<td class="">'+o.matId+'</td>'+
-             '<td class="">'+o.matNombre+'</td>'+
+             '<td class="">'+o.catId+'</td>'+
+             '<td class="">'+o.catNombre+'</td>'+
 
              '<td class="text-center">'+
-               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.matId+'" '+
+               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.catId+'" '+
                'style="cursor:pointer" title="Editar"></span>'+
              '</td>'+
 
              '<td class="text-center">'+
-             '<i id='+o.matId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
+             '<i id='+o.catId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
              '</i></td>'+
 
            '</tr>'
@@ -60,14 +60,14 @@ function getCategorias(){
     }
 }
 
-    function agregarMateria(){
-      if (!validar()) {
+    function agregarCategoria(){
+      /*if (!validar()) {
         return false;
-      }
+      }*/
       var editar = $.ajax({
-        url: 'php/materia/agregarMateria.php',
+        url: 'php/categoria/agregarCategoria.php',
         data: {
-          nombreMateria:txtMateria.val()
+          nombreCategoria:txtCategoria.val()
         },
         type: 'post',
         dataType:'json',
@@ -130,16 +130,16 @@ function getCategorias(){
             alert('Error JSON ' + e);
         }
 
-        txtMateriaE.val('');
+        txtCategoriaE.val('');
 
         idMAteriaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtMateriaE.val(o.matNombre);
+              txtCategoriaE.val(o.matNombre);
               idMAteriaE.val(o.matId);
             });
         }else{
-          txtMateriaE.val(res.message);
+          txtCategoriaE.val(res.message);
         }
     }
 
@@ -148,7 +148,7 @@ function getCategorias(){
         url: 'php/materia/editarMateria.php',
         data: {
           idMateria:idMAteriaE.val(),
-          nombreMateria:txtMateriaE.val(),
+          nombreMateria:txtCategoriaE.val(),
 
         },
         type: 'post',
@@ -196,7 +196,7 @@ function cancelarEditar(){
 }
 
 function limpiar(){
-  txtMateria.val('');
+  txtCategoria.val('');
 }
 
 function eliminarMateria(id){
@@ -257,8 +257,8 @@ function eliminar(){
 }
 
 function validar(){
-  if ((txtMateria.val()==null)||(txtMateria.val()=='')) {
-    txtMateria.focus();
+  if ((txtCategoria.val()==null)||(txtCategoria.val()=='')) {
+    txtCategoria.focus();
     swal("Debe ingresar el nombre de la entidad.")
     return false;
   }
@@ -271,7 +271,7 @@ $(document).on('ready', function(){
 });
 
 btnLimpiar.on('click',limpiar);
-btnAgregar.on('click',agregarMateria);
+btnAgregar.on('click',agregarCategoria);
 
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarMateria);

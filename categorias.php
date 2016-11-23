@@ -85,12 +85,12 @@
             <div class="well" id="frmAgregar">
         <div class="form-horizontal" >
           <fieldset>
-            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Materia</legend>
+            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar categoría de preguntas</legend>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
+              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la categoría:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <input type="text" class="form-control input-sm" id="txtCategoria" placeholder="Nombre de la categoría" maxlength="500" spellcheck="true">
               </div>
             </div>
 
@@ -120,12 +120,12 @@
       <div class="well hidden" id="formEditar">
   <div class="form-horizontal" >
     <fieldset>
-      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar materia</legend>
+      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar categoría</legend>
 
       <div class="form-group">
-        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
+        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la categoría:</label>
         <div class="col-md-10">
-          <input type="text" class="form-control input-sm" id="txtMateriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+          <input type="text" class="form-control input-sm" id="txtCategoriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
         </div>
       </div>
 
@@ -144,14 +144,14 @@
 
       <div class="row" id="tblRegistros">
         <div class="col-md-12">
-          <h3>Materias  registradas:</h3>
+          <h3>Categorías  registradas:</h3>
           <div class="table-responsive" id="tblServicios">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th class="col-md-1">No.</th>
                   <th class="col-md-1">Id</th>
-                  <th class="col-md-8">Materia</th>
+                  <th class="col-md-8">Categoría</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->
