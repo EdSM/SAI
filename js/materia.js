@@ -143,12 +143,12 @@ function getMaterias(){
         }
     }
 
-    function editarEntidad(){
+    function editarMateria(){
       var editar = $.ajax({
-        url: '../php/entidades/editarEntidad.php',
+        url: 'php/materia/editarMateria.php',
         data: {
-          idEntidad:idMAteriaE.val(),
-          nombreEntidad:txtMateriaE.val(),
+          idMateria:idMAteriaE.val(),
+          nombreMateria:txtMateriaE.val(),
 
         },
         type: 'post',
@@ -274,7 +274,7 @@ btnLimpiar.on('click',limpiar);
 btnAgregar.on('click',agregarMateria);
 
 btnCancelarE.on('click',cancelarEditar);
-btnAgregarE.on('click',editarEntidad);
+btnAgregarE.on('click',editarMateria);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarMateria);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
