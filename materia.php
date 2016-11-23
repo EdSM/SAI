@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" charset="utf-8">
   <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="datepicker/css/bootstrap-datepicker3.standalone.css">
+  <link href="libreria/sweetAlert/sweetalert.css" rel="stylesheet">
   <link href="css/landing-page.css" rel="stylesheet">
 
 </head>
@@ -89,7 +90,7 @@
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Nombre oficial de la entidad federativa" maxlength="500" spellcheck="true">
+                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
               </div>
             </div>
 
@@ -143,14 +144,14 @@
 
       <div class="row" id="tblRegistros">
         <div class="col-md-12">
-          <h3>Entidades registradas:</h3>
+          <h3>Materias  registradas:</h3>
           <div class="table-responsive" id="tblServicios">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th class="col-md-1">No.</th>
                   <th class="col-md-1">Id</th>
-                  <th class="col-md-8">Entidad</th>
+                  <th class="col-md-8">Materia</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->
@@ -180,6 +181,7 @@
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery.easing.min.js"></script>
       <script src="datepicker/js/bootstrap-datepicker.js"></script>
+       <script src="libreria/sweetAlert/sweetalert.min.js"></script>
       <script src="js/materia.js"></script>
   <script>
     //$('#collapseContenidos').addClass('in');

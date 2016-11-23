@@ -1,12 +1,12 @@
 <?php
-  $nombreMateria = ($_POST['nombreMateria']);
+  $nombreEntidad = ($_POST['nombreEntidad']);
 
-        if (isset($nombreMateria)) {
+        if (isset($nombreEntidad)) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'INSERT INTO materias (matNombre, matActivo) VALUES("'.$nombreMateria.'", 1);';
-          //$Consultas -> validarSesion();
+          $consulta = 'INSERT INTO entidades (entNombre) VALUES("'.$nombreEntidad.'");';
+          $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
         else {

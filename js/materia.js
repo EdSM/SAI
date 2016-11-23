@@ -11,7 +11,7 @@ var txtMateria=$('#txtMateria'),
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
 
-function getEntidades(){
+function getMaterias(){
   var datos = $.ajax({
     url: 'php/materia/getTodoMaterias.php',
     type: 'get',
@@ -65,9 +65,9 @@ function getEntidades(){
         return false;
       }
       var editar = $.ajax({
-        url: '../php/entidades/agregarMateria.php',
+        url: 'php/materia/agregarMateria.php',
         data: {
-          nombreEntidad:txtMateria.val()
+          nombreMateria:txtMateria.val()
         },
         type: 'post',
         dataType:'json',
@@ -85,7 +85,7 @@ function getEntidades(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMAterias();
+          getMaterias();
           swal({
             title: "",
             text: " ",
@@ -167,7 +167,7 @@ function getEntidades(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getEntidades();
+          getMaterias();
           cancelarEditar();
           swal({
             title: "",
@@ -199,11 +199,11 @@ function limpiar(){
   txtMateria.val('');
 }
 
-function eliminarEntidad(id){
+function eliminarMateria(id){
   var editar = $.ajax({
-    url: '../php/entidades/eliminarEntidad.php',
+    url: 'php/materia/eliminarMateria.php',
     data: {
-      idEntidad:id
+      idMateria:id
     },
     type: 'post',
     dataType:'json',
@@ -220,7 +220,7 @@ function eliminarEntidad(id){
     }
 
     if ( resultado.status === 'OK' ){
-      getEntidades();
+      getMaterias();
       swal({
         title: "",
         text: resultado.message,
@@ -243,7 +243,7 @@ function eliminarEntidad(id){
 function eliminar(){
   var id = $(this).attr('id');
   swal({
-    title: "¿Seguro de eliminar la entidad seleccionada?",
+    title: "¿Seguro de eliminar la materia seleccionada?",
     text: "",
     type: "warning",
     showCancelButton: true,
@@ -252,7 +252,7 @@ function eliminar(){
     closeOnConfirm: false
   },
   function(){
-    eliminarEntidad(id);
+    eliminarMateria(id);
   });
 }
 
@@ -267,7 +267,7 @@ function validar(){
 }
 
 $(document).on('ready', function(){
-  getEntidades();
+  getMaterias();
 });
 
 btnLimpiar.on('click',limpiar);
