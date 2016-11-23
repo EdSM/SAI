@@ -143,12 +143,12 @@ function getCategorias(){
         }
     }
 
-    function editarMateria(){
+    function editarCategoria(){
       var editar = $.ajax({
-        url: 'php/materia/editarMateria.php',
+        url: 'php/categoria/editarCategoria.php',
         data: {
-          idMateria:idCategoriaE.val(),
-          nombreMateria:txtCategoriaE.val(),
+          idCategoria:idCategoriaE.val(),
+          nombreCategoria:txtCategoriaE.val(),
 
         },
         type: 'post',
@@ -274,7 +274,7 @@ btnLimpiar.on('click',limpiar);
 btnAgregar.on('click',agregarCategoria);
 
 btnCancelarE.on('click',cancelarEditar);
-btnAgregarE.on('click',editarMateria);
+btnAgregarE.on('click',editarCategoria);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarCategoria);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
