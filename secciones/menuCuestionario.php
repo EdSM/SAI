@@ -6,6 +6,18 @@
       </a>
   </li>
   <li id="liCondGT" style="cursor:pointer">
+      <a class="grisClaro texto3d" href="materia.php" >
+        <i class="fa fa-sitemap" aria-hidden="true"></i>
+        Materias
+      </a>
+  </li>
+  <li id="liCondGT" style="cursor:pointer">
+      <a class="grisClaro texto3d" href="categorias.php" >
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        Categoría de preguntas
+      </a>
+  </li>
+  <li id="liCondGT" style="cursor:pointer">
       <a class="grisClaro texto3d" href="index.php" >
         <i class="fa fa-book" aria-hidden="true"></i>
         Asignar cuestionario
