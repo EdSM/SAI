@@ -120,12 +120,12 @@
       <div class="well hidden" id="formEditar">
   <div class="form-horizontal" >
     <fieldset>
-      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar entidad federativa</legend>
+      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar materia</legend>
 
       <div class="form-group">
-        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la entidad:</label>
+        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
         <div class="col-md-10">
-          <input type="text" class="form-control input-sm" id="txtEntidadE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+          <input type="text" class="form-control input-sm" id="txtMateriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
         </div>
       </div>
 
@@ -133,7 +133,7 @@
         <div class="col-md-9 col-md-offset-3">
           <button class="btn btn-primary btn-sm" id="btnAgregarE"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
           <button class="btn btn-danger btn-sm" id="btnCancelarE"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
-          <input type="hidden" name="idEntidadE" id="idEntidadE" >
+          <input type="hidden" name="idMAteriaE" id="idMAteriaE" >
         </div>
       </div>
     </fieldset>

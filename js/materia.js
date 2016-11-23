@@ -7,7 +7,7 @@ var txtMateria=$('#txtMateria'),
     txtMateriaE=$('#txtMateriaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
-    idEntidadE=$('#idEntidadE');
+    idMAteriaE=$('#idMAteriaE');
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
 
@@ -106,15 +106,15 @@ function getMaterias(){
     }
 
 
-    function seleccionarEntidad(){
+    function seleccionarMateria(){
       frmAgregar.addClass('hidden');
       formEditar.removeClass('hidden');
       tblRegistros.addClass('hidden');
       var id = $(this).attr('id');
       var datos = $.ajax({
-        url: '../php/entidades/seleccionarEntidad.php',
+        url: 'php/materia/seleccionarMateria.php',
         data: {
-          idEntidad: id
+          idMateria: id
         },
         type: 'post',
             dataType:'json',
@@ -132,11 +132,11 @@ function getMaterias(){
 
         txtMateriaE.val('');
 
-        idEntidadE.val('');
+        idMAteriaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtMateriaE.val(o.entNombre);
-              idEntidadE.val(o.entId);
+              txtMateriaE.val(o.matNombre);
+              idMAteriaE.val(o.matId);
             });
         }else{
           txtMateriaE.val(res.message);
@@ -147,7 +147,7 @@ function getMaterias(){
       var editar = $.ajax({
         url: '../php/entidades/editarEntidad.php',
         data: {
-          idEntidad:idEntidadE.val(),
+          idEntidad:idMAteriaE.val(),
           nombreEntidad:txtMateriaE.val(),
 
         },
@@ -276,5 +276,5 @@ btnAgregar.on('click',agregarMateria);
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarEntidad);
 
-tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarEntidad);
+tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarMateria);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
