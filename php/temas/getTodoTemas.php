@@ -21,7 +21,7 @@ session_start();
            $temId = $row['temId'];
            $temNombre = $row['temNombre'];
            $matNombre = $row['matNombre'];
-           $data[]= array('matId'=>$matId,
+           $data[]= array('temId'=>$temId,
                           'temNombre' => $temNombre,
                           'matNombre' => $matNombre);
            $i++;

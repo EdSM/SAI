@@ -3,8 +3,8 @@ var btnAgregar = $('#btnAgregar'),
     btnLimpiar=$('#btnLimpiar');
 var tbodyRegistros=$('#tbodyRegistros'),
     tblRegistros=$('#tblRegistros');
-var txtMateria=$('#txtMateria'),
-    txtMateriaE=$('#txtMateriaE'),
+var txtTema=$('#txtTema'),
+    txtTemaE=$('#txtTemaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
     idMAteriaE=$('#idMAteriaE'),
@@ -30,7 +30,8 @@ function getMaterias(){
         alert('Error JSON ' + e);
     }
 
-    tbodyRegistros.html('');
+    slcMateria.html('');
+    slcMateriaE.html('');
     if ( res.status === 'OK' ){
 
        var i = 1;
@@ -52,7 +53,7 @@ function getMaterias(){
     }
 }
 
-function getTemas(){
+function getTemas (){
   var datos = $.ajax({
     url: 'php/temas/getTodoTemas.php',
     type: 'get',
@@ -107,9 +108,10 @@ function getTemas(){
         return false;
       }
       var editar = $.ajax({
-        url: 'php/tema/agregarTema.php',
+        url: 'php/temas/agregarTema.php',
         data: {
-          nombreMateria:txtMateria.val()
+          nombreTema:txtTema.val(),
+          materiaTema:slcMateria.val()
         },
         type: 'post',
         dataType:'json',
@@ -172,16 +174,16 @@ function getTemas(){
             alert('Error JSON ' + e);
         }
 
-        txtMateriaE.val('');
+        txtTemaE.val('');
 
         idMAteriaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtMateriaE.val(o.matNombre);
+              txtTemaE.val(o.matNombre);
               idMAteriaE.val(o.matId);
             });
         }else{
-          txtMateriaE.val(res.message);
+          txtTemaE.val(res.message);
         }
     }
 
@@ -190,7 +192,7 @@ function getTemas(){
         url: 'php/materia/editarMateria.php',
         data: {
           idMateria:idMAteriaE.val(),
-          nombreMateria:txtMateriaE.val(),
+          nombreMateria:txtTemaE.val(),
 
         },
         type: 'post',
@@ -238,7 +240,7 @@ function cancelarEditar(){
 }
 
 function limpiar(){
-  txtMateria.val('');
+  txtTema.val('');
 }
 
 function eliminarMateria(id){
@@ -299,8 +301,8 @@ function eliminar(){
 }
 
 function validar(){
-  if ((txtMateria.val()==null)||(txtMateria.val()=='')) {
-    txtMateria.focus();
+  if ((txtTema.val()==null)||(txtTema.val()=='')) {
+    txtTema.focus();
     swal("Debe ingresar el nombre de la entidad.")
     return false;
   }

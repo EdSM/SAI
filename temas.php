@@ -82,7 +82,7 @@
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Título del tema" maxlength="500" spellcheck="true">
+                <input type="text" class="form-control input-sm" id="txtTema" placeholder="Título del tema" maxlength="500" spellcheck="true">
               </div>
             </div>
 
@@ -122,7 +122,7 @@
       <div class="form-group">
         <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
         <div class="col-md-10">
-          <input type="text" class="form-control input-sm" id="txtMateriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+          <input type="text" class="form-control input-sm" id="txtTemaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
         </div>
       </div>
       <div class="form-group">
@@ -155,7 +155,8 @@
                 <tr>
                   <th class="col-md-1">No.</th>
                   <th class="col-md-1">Id</th>
-                  <th class="col-md-8">Tema</th>
+                  <th class="col-md-6">Tema</th>
+                  <th class="col-md-2">Materia</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->
