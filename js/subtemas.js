@@ -3,8 +3,8 @@ var btnAgregar = $('#btnAgregar'),
     btnLimpiar=$('#btnLimpiar');
 var tbodyRegistros=$('#tbodyRegistros'),
     tblRegistros=$('#tblRegistros');
-var txtMateria=$('#txtMateria'),
-    txtMateriaE=$('#txtMateriaE'),
+var txtSubtema=$('#txtSubtema'),
+    txtSubtemaE=$('#txtSubtemaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
     idMAteriaE=$('#idMAteriaE'),
@@ -101,14 +101,15 @@ function getSubtemas(){
     }
 }
 
-    function agregarMateria(){
+    function agregarSubtema(){
       if (!validar()) {
         return false;
       }
       var editar = $.ajax({
-        url: 'php/subtemas/agregarMateria.php',
+        url: 'php/subtemas/agregarSubtema.php',
         data: {
-          nombreMateria:txtMateria.val()
+          nombreSubtema:txtSubtema.val(),
+          idTema:slcTema.val()
         },
         type: 'post',
         dataType:'json',
@@ -171,16 +172,16 @@ function getSubtemas(){
             alert('Error JSON ' + e);
         }
 
-        txtMateriaE.val('');
+        txtSubtemaE.val('');
 
         idMAteriaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtMateriaE.val(o.matNombre);
+              txtSubtemaE.val(o.matNombre);
               idMAteriaE.val(o.matId);
             });
         }else{
-          txtMateriaE.val(res.message);
+          txtSubtemaE.val(res.message);
         }
     }
 
@@ -189,7 +190,7 @@ function getSubtemas(){
         url: 'php/materia/editarMateria.php',
         data: {
           idMateria:idMAteriaE.val(),
-          nombreMateria:txtMateriaE.val(),
+          nombreMateria:txtSubtemaE.val(),
 
         },
         type: 'post',
@@ -237,7 +238,7 @@ function cancelarEditar(){
 }
 
 function limpiar(){
-  txtMateria.val('');
+  txtSubtema.val('');
 }
 
 function eliminarMateria(id){
@@ -298,9 +299,9 @@ function eliminar(){
 }
 
 function validar(){
-  if ((txtMateria.val()==null)||(txtMateria.val()=='')) {
-    txtMateria.focus();
-    swal("Debe ingresar el nombre de la entidad.")
+  if ((txtSubtema.val()==null)||(txtSubtema.val()=='')) {
+    txtSubtema.focus();
+    swal("Debe ingresar el nombre del subtema.")
     return false;
   }
 
@@ -313,7 +314,7 @@ $(document).on('ready', function(){
 });
 
 btnLimpiar.on('click',limpiar);
-btnAgregar.on('click',agregarMateria);
+btnAgregar.on('click',agregarSubtema);
 
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarMateria);

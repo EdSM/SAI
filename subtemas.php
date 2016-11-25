@@ -83,7 +83,7 @@
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del Subtema:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
               </div>
             </div>
 
