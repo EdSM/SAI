@@ -20,7 +20,11 @@ session_start();
           //$entNombre =  utf8_encode ( $row['entNombre']);
            $subId = $row['subId'];
            $subNombre = $row['subNombre'];
-           $data[]= array('subId'=>$subId, 'subNombre' => $subNombre);
+           $temNombre = $row['temNombre'];
+           $data[]= array('subId'=>$subId,
+                          'subNombre' => $subNombre,
+                          'temNombre' => $temNombre
+            );
            $i++;
 
         }

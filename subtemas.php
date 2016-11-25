@@ -160,7 +160,8 @@
                 <tr>
                   <th class="col-md-1">No.</th>
                   <th class="col-md-1">Id</th>
-                  <th class="col-md-8">Subtemas</th>
+                  <th class="col-md-4">Subtemas</th>
+                  <th class="col-md-4">Tema</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->

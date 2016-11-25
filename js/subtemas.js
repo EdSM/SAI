@@ -80,6 +80,8 @@ function getSubtemas(){
              '<td class="">'+i+'</td>'+
              '<td class="">'+o.subId+'</td>'+
              '<td class="">'+o.subNombre+'</td>'+
+             '<td class="">'+o.temNombre+'</td>'+
+
 
              '<td class="text-center">'+
                '<span class="glyphicon glyphicon-edit text-primary" id="'+o.subId+'" '+
