@@ -7,7 +7,7 @@ var txtTema=$('#txtTema'),
     txtTemaE=$('#txtTemaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
-    idMAteriaE=$('#idMAteriaE'),
+    idTemaE=$('#idTemaE'),
     slcMateria=$('#slcMateria');
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar'),
@@ -176,11 +176,11 @@ function getTemas (){
 
         txtTemaE.val('');
 
-        idMAteriaE.val('');
+        idTemaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
               txtTemaE.val(o.temNombre);
-              idMAteriaE.val(o.temId);
+              idTemaE.val(o.temId);
 
               slcMateriaE.find('option').each(function(){
               if ( o.temMateria == $(this).val() )
@@ -193,13 +193,14 @@ function getTemas (){
         }
     }
 
-    function editarMateria(){
+    function editarTema(){
       var editar = $.ajax({
-        url: 'php/materia/editarMateria.php',
+        url: 'php/temas/editarTema.php',
         data: {
-          idMateria:idMAteriaE.val(),
-          nombreMateria:txtTemaE.val(),
 
+          nombreTema:txtTemaE.val(),
+          idMateria:slcMateriaE.val(),
+          idTema:idTemaE.val(),
         },
         type: 'post',
         dataType:'json',
@@ -325,7 +326,7 @@ btnLimpiar.on('click',limpiar);
 btnAgregar.on('click',agregarTema);
 
 btnCancelarE.on('click',cancelarEditar);
-btnAgregarE.on('click',editarMateria);
+btnAgregarE.on('click',editarTema);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarTema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
