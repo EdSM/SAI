@@ -241,11 +241,11 @@ function limpiar(){
   txtSubtema.val('');
 }
 
-function eliminarMateria(id){
+function eliminarSubtema(id){
   var editar = $.ajax({
-    url: 'php/materia/eliminarMateria.php',
+    url: 'php/subtemas/eliminarSubtema.php',
     data: {
-      idMateria:id
+      idSubtema:id
     },
     type: 'post',
     dataType:'json',
@@ -285,7 +285,7 @@ function eliminarMateria(id){
 function eliminar(){
   var id = $(this).attr('id');
   swal({
-    title: "¿Seguro de eliminar la materia seleccionada?",
+    title: "¿Seguro de eliminar el subtema seleccionada?",
     text: "",
     type: "warning",
     showCancelButton: true,
@@ -294,7 +294,7 @@ function eliminar(){
     closeOnConfirm: false
   },
   function(){
-    eliminarMateria(id);
+    eliminarSubtema(id);
   });
 }
 
