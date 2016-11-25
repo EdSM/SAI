@@ -126,7 +126,7 @@
       <div class="form-group">
         <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del subtema:</label>
         <div class="col-md-10">
-          <input type="text" class="form-control input-sm" id="txtMateriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+          <input type="text" class="form-control input-sm" id="txtSubtemaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
         </div>
       </div>
 
@@ -142,7 +142,7 @@
         <div class="col-md-9 col-md-offset-3">
           <button class="btn btn-primary btn-sm" id="btnAgregarE"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
           <button class="btn btn-danger btn-sm" id="btnCancelarE"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
-          <input type="hidden" name="idMAteriaE" id="idMAteriaE" >
+          <input type="hidden" name="idSubtemaE" id="idSubtemaE" >
         </div>
       </div>
     </fieldset>

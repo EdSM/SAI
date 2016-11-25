@@ -7,7 +7,7 @@ var txtSubtema=$('#txtSubtema'),
     txtSubtemaE=$('#txtSubtemaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
-    idMAteriaE=$('#idMAteriaE'),
+    idSubtemaE=$('#idSubtemaE'),
     slcTemaE=$('#slcTemaE'),
     slcTema=$('#slcTema');
 var formEditar=$('#formEditar'),
@@ -150,15 +150,15 @@ function getSubtemas(){
     }
 
 
-    function seleccionarMateria(){
+    function seleccionarSubtema(){
       frmAgregar.addClass('hidden');
       formEditar.removeClass('hidden');
       tblRegistros.addClass('hidden');
       var id = $(this).attr('id');
       var datos = $.ajax({
-        url: 'php/materia/seleccionarMateria.php',
+        url: 'php/subtemas/seleccionarSubtema.php',
         data: {
-          idMateria: id
+          idSubtema: id
         },
         type: 'post',
             dataType:'json',
@@ -176,11 +176,17 @@ function getSubtemas(){
 
         txtSubtemaE.val('');
 
-        idMAteriaE.val('');
+        idSubtemaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtSubtemaE.val(o.matNombre);
-              idMAteriaE.val(o.matId);
+              txtSubtemaE.val(o.subNombre);
+              idSubtemaE.val(o.subId);
+
+              slcTemaE.find('option').each(function(){
+              if ( o.subTema == $(this).val() )
+                slcTemaE.val(o.subTema);
+              });
+
             });
         }else{
           txtSubtemaE.val(res.message);
@@ -191,7 +197,7 @@ function getSubtemas(){
       var editar = $.ajax({
         url: 'php/materia/editarMateria.php',
         data: {
-          idMateria:idMAteriaE.val(),
+          idMateria:idSubtemaE.val(),
           nombreMateria:txtSubtemaE.val(),
 
         },
@@ -321,5 +327,5 @@ btnAgregar.on('click',agregarSubtema);
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarMateria);
 
-tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarMateria);
+tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
