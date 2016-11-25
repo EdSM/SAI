@@ -243,11 +243,11 @@ function limpiar(){
   txtTema.val('');
 }
 
-function eliminarMateria(id){
+function eliminarTema(id){
   var editar = $.ajax({
-    url: 'php/materia/eliminarMateria.php',
+    url: 'php/temas/eliminarTema.php',
     data: {
-      idMateria:id
+      idTema:id
     },
     type: 'post',
     dataType:'json',
@@ -296,7 +296,7 @@ function eliminar(){
     closeOnConfirm: false
   },
   function(){
-    eliminarMateria(id);
+    eliminarTema(id);
   });
 }
 

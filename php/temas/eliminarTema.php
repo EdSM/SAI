@@ -1,12 +1,12 @@
 <?php
 
-  $idMateria = ($_POST['idMateria']);
+  $idTema = ($_POST['idTema']);
 
-        if (isset($idMateria)) {
+        if (isset($idTema)) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'DELETE FROM materias WHERE matId = '.$idMateria.' ;';
+          $consulta = 'DELETE FROM temas WHERE temId = '.$idTema.' ;';
         //  $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
