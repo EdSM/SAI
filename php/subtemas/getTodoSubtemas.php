@@ -11,16 +11,16 @@ session_start();
       );
    }
    else{
-     $consulta = "SELECT matId, matNombre FROM materias;";
+     $consulta = "SELECT s.subId, s.subNombre, t.temNombre FROM subtemas s, temas t WHERE s.subTema = t.temId;";
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {
          $i=0;
          while($row = mysqli_fetch_array($result, MYSQL_BOTH)) {
           //$entNombre =  utf8_encode ( $row['entNombre']);
-           $matId = $row['matId'];
-           $matNombre = $row['matNombre'];
-           $data[]= array('matId'=>$matId, 'matNombre' => $matNombre);
+           $subId = $row['subId'];
+           $subNombre = $row['subNombre'];
+           $data[]= array('subId'=>$subId, 'subNombre' => $subNombre);
            $i++;
 
         }

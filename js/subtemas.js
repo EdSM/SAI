@@ -7,13 +7,54 @@ var txtMateria=$('#txtMateria'),
     txtMateriaE=$('#txtMateriaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
-    idMAteriaE=$('#idMAteriaE');
+    idMAteriaE=$('#idMAteriaE'),
+    slcTemaE=$('#slcTemaE'),
+    slcTema=$('#slcTema');
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
 
-function getMaterias(){
+    function getTemas(){
+      var datos = $.ajax({
+        url: 'php/temas/getTodoTemas.php',
+        type: 'get',
+            dataType:'json',
+            async:false
+        }).error(function(e){
+            alert('Ocurrio un error, intente de nuevo');
+        }).responseText;
+
+        var res;
+        try{
+            res = JSON.parse(datos);
+        }catch (e){
+            alert('Error JSON ' + e);
+        }
+
+        if ( res.status === 'OK' ){
+           slcTema.html('');
+           slcTemaE.html('');
+           var i = 1;
+           $.each(res.data, function(k,o){
+
+             slcTema.append(
+               '<option value='+o.temId+'>'+o.temNombre+'</option>'
+             );
+             slcTemaE.append(
+               '<option value='+o.temId+'>'+o.temNombre+'</option>'
+             );
+
+           i++
+
+         });
+
+        }else{
+          tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+        }
+    }
+
+function getSubtemas(){
   var datos = $.ajax({
-    url: 'php/materia/getTodoMaterias.php',
+    url: 'php/subtemas/getTodoSubtemas.php',
     type: 'get',
         dataType:'json',
         async:false
@@ -37,16 +78,16 @@ function getMaterias(){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-             '<td class="">'+o.matId+'</td>'+
-             '<td class="">'+o.matNombre+'</td>'+
+             '<td class="">'+o.subId+'</td>'+
+             '<td class="">'+o.subNombre+'</td>'+
 
              '<td class="text-center">'+
-               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.matId+'" '+
+               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.subId+'" '+
                'style="cursor:pointer" title="Editar"></span>'+
              '</td>'+
 
              '<td class="text-center">'+
-             '<i id='+o.matId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
+             '<i id='+o.subId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
              '</i></td>'+
 
            '</tr>'
@@ -65,7 +106,7 @@ function getMaterias(){
         return false;
       }
       var editar = $.ajax({
-        url: 'php/materia/agregarMateria.php',
+        url: 'php/subtemas/agregarMateria.php',
         data: {
           nombreMateria:txtMateria.val()
         },
@@ -85,7 +126,7 @@ function getMaterias(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMaterias();
+          getSubtemas();
           swal({
             title: "",
             text: " ",
@@ -167,7 +208,7 @@ function getMaterias(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getMaterias();
+          getSubtemas();
           cancelarEditar();
           swal({
             title: "",
@@ -220,7 +261,7 @@ function eliminarMateria(id){
     }
 
     if ( resultado.status === 'OK' ){
-      getMaterias();
+      getSubtemas();
       swal({
         title: "",
         text: resultado.message,
@@ -267,7 +308,8 @@ function validar(){
 }
 
 $(document).on('ready', function(){
-  getMaterias();
+  getSubtemas();
+  getTemas();
 });
 
 btnLimpiar.on('click',limpiar);

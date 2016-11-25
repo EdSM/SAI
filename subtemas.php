@@ -35,14 +35,7 @@
               <li> <!--   {{ HTML::link('/inicio2', Session::get('nombre')) }} --></li>
             <li class="dropdown">
               <!--    <a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Historial<b class="caret"></b></a> -->
-              <ul class="dropdown-menu">
-            <li>
-                  <a href="repSesPeriodo"><i class="fa fa-calendar-o"></i> Por período</a>
-                </li>
-                <li>
-                  <a href="repSesFuente"><i class="fa fa-newspaper-o"></i> Por fuente</a>
-                </li>
-              </ul>
+
              </li>
 
             <li class="dropdown">
@@ -85,12 +78,20 @@
             <div class="well" id="frmAgregar">
         <div class="form-horizontal" >
           <fieldset>
-            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Materia</legend>
+            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Subtemas</legend>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
+              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del Subtema:</label>
               <div class="col-md-10">
                 <input type="text" class="form-control input-sm" id="txtMateria" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
+              <div class="col-md-10">
+                <select name="" id="slcTema" class="form-control input-sm">
+                  </select>
               </div>
             </div>
 
@@ -120,12 +121,20 @@
       <div class="well hidden" id="formEditar">
   <div class="form-horizontal" >
     <fieldset>
-      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar materia</legend>
+      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar subtema</legend>
 
       <div class="form-group">
-        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre de la materia:</label>
+        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del subtema:</label>
         <div class="col-md-10">
           <input type="text" class="form-control input-sm" id="txtMateriaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
+        <div class="col-md-10">
+          <select name="" id="slcTemaE" class="form-control input-sm">
+            </select>
         </div>
       </div>
 
@@ -144,14 +153,14 @@
 
       <div class="row" id="tblRegistros">
         <div class="col-md-12">
-          <h3>Materias  registradas:</h3>
+          <h3>Subtemas registradas:</h3>
           <div class="table-responsive" id="tblServicios">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th class="col-md-1">No.</th>
                   <th class="col-md-1">Id</th>
-                  <th class="col-md-8">Materia</th>
+                  <th class="col-md-8">Subtemas</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->
