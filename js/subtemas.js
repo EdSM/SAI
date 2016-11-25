@@ -193,12 +193,13 @@ function getSubtemas(){
         }
     }
 
-    function editarMateria(){
+    function editarSubtema(){
       var editar = $.ajax({
-        url: 'php/materia/editarMateria.php',
+        url: 'php/subtemas/editarSubtema.php',
         data: {
-          idMateria:idSubtemaE.val(),
-          nombreMateria:txtSubtemaE.val(),
+          idSubtema:idSubtemaE.val(),
+          nombreSubtema:txtSubtemaE.val(),
+          idTema:slcTemaE.val()
 
         },
         type: 'post',
@@ -325,7 +326,7 @@ btnLimpiar.on('click',limpiar);
 btnAgregar.on('click',agregarSubtema);
 
 btnCancelarE.on('click',cancelarEditar);
-btnAgregarE.on('click',editarMateria);
+btnAgregarE.on('click',editarSubtema);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);

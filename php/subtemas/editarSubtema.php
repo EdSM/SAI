@@ -1,14 +1,15 @@
 <?php
 
-  $idMateria = ($_POST['idMateria']);
-  $nombreMateria = ($_POST['nombreMateria']);
+  $idSubtema = ($_POST['idSubtema']);
+  $nombreSubtema = ($_POST['nombreSubtema']);
+  $idTema = ($_POST['idTema']);
 
 
-        if ((isset($idMateria)) && (isset($nombreMateria))) {
+        if ((isset($idSubtema)) && (isset($nombreSubtema))) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'UPDATE materias SET matNombre = "'.$nombreMateria.'"  WHERE matId = '.$idMateria.' ;';
+          $consulta = 'UPDATE subtemas SET subNombre = "'.$nombreSubtema.'", subTema="'.$idTema.'"  WHERE subId = '.$idSubtema.' ;';
         //  $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
