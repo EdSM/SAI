@@ -1,6 +1,6 @@
 <?php
-class ConsultasMateria {
-public function consultaGetMaterias($consulta) {
+class ConsultasTema {
+public function consultaGetTemas($consulta) {
     include('../Consultas.php');
     $Consultas = new Consultas;
     $ConexionBD = $Consultas->establecerConexion();
@@ -18,9 +18,12 @@ public function consultaGetMaterias($consulta) {
          if( $result->num_rows > 0 ) {
            $i=0;
            while($row = mysqli_fetch_array($result, MYSQL_BOTH)) {
-             $matNombre = $row['matNombre'];
-             $matId = $row['matId'];
-             $data[]= array('matId'=>$matId, 'matNombre' => $matNombre);
+             $temNombre = $row['temNombre'];
+             $temId = $row['temId'];
+             $temMateria = $row['temMateria'];
+             $data[]= array('temId'=>$temId,
+                            'temNombre' => $temNombre,
+                            'temMateria' => $temMateria);
              $i++;
 
            }

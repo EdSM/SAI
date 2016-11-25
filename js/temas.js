@@ -150,15 +150,15 @@ function getTemas (){
     }
 
 
-    function seleccionarMateria(){
+    function seleccionarTema(){
       frmAgregar.addClass('hidden');
       formEditar.removeClass('hidden');
       tblRegistros.addClass('hidden');
       var id = $(this).attr('id');
       var datos = $.ajax({
-        url: 'php/materia/seleccionarMateria.php',
+        url: 'php/temas/seleccionarTema.php',
         data: {
-          idMateria: id
+          idTema: id
         },
         type: 'post',
             dataType:'json',
@@ -179,8 +179,14 @@ function getTemas (){
         idMAteriaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtTemaE.val(o.matNombre);
-              idMAteriaE.val(o.matId);
+              txtTemaE.val(o.temNombre);
+              idMAteriaE.val(o.temId);
+
+              slcMateriaE.find('option').each(function(){
+              if ( o.temMateria == $(this).val() )
+                slcMateriaE.val(o.temMateria);
+              });
+
             });
         }else{
           txtTemaE.val(res.message);
@@ -321,5 +327,5 @@ btnAgregar.on('click',agregarTema);
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarMateria);
 
-tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarMateria);
+tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarTema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
