@@ -99,14 +99,16 @@
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Seleccionar subtema:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <select name="" id="slcSubtema" class="form-control input-sm">
+                  </select>
               </div>
             </div>
 
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Seleccione categoría de pregunta:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <select name="" id="slcCategoria" class="form-control input-sm">
+                  </select>
               </div>
             </div>
 

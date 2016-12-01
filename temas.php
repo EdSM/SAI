@@ -150,7 +150,7 @@
 
       <div class="row" id="tblRegistros">
         <div class="col-md-12">
-          <h3>Temas registradas:</h3>
+          <h3>Temas registrados:</h3>
           <div class="table-responsive" id="tblServicios">
             <table class="table table-striped table-hover">
               <thead>
