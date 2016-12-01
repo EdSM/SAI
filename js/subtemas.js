@@ -30,9 +30,14 @@ var formEditar=$('#formEditar'),
             alert('Error JSON ' + e);
         }
 
+        slcTema.html('');
+        slcTemaE.html('');
+        slcTema.append(
+          '<option value=0>Seleccione un tema</option>'
+        );
+
         if ( res.status === 'OK' ){
-           slcTema.html('');
-           slcTemaE.html('');
+
            var i = 1;
            $.each(res.data, function(k,o){
 
@@ -48,7 +53,10 @@ var formEditar=$('#formEditar'),
          });
 
         }else{
-          tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+          slcTemaE.append(
+            '<option value=0>'+ res.message+'</option>'
+          );
+          
         }
     }
 

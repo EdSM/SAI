@@ -3,19 +3,24 @@ var btnAgregar = $('#btnAgregar'),
     btnLimpiar=$('#btnLimpiar');
 var tbodyRegistros=$('#tbodyRegistros'),
     tblRegistros=$('#tblRegistros');
-var txtSubtema=$('#txtSubtema'),
+var
     txtSubtemaE=$('#txtSubtemaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
     idSubtemaE=$('#idSubtemaE'),
+
     slcTemaE=$('#slcTemaE'),
-    slcTema=$('#slcTema');
+    slcMateria=$('#slcMateria'),
+    slcTema=$('#slcTema'),
+    slcSubtema=$('#slcSubtema'),
+    txtPregunta=$('#txtPregunta');
+
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
 
-    function getTemas(){
+    function getMaterias(){
       var datos = $.ajax({
-        url: 'php/temas/getTodoTemas.php',
+        url: 'php/materia/getTodoMaterias.php',
         type: 'get',
             dataType:'json',
             async:false
@@ -30,27 +35,74 @@ var formEditar=$('#formEditar'),
             alert('Error JSON ' + e);
         }
 
+        tbodyRegistros.html('');
+        slcMateria.html('');
+        /*slcMateria.append(
+          '<option value=0>Seleccionar un tema</option>'
+        );*/
         if ( res.status === 'OK' ){
-           slcTema.html('');
-           slcTemaE.html('');
+
+           var i = 1;
+           $.each(res.data, function(k,o){
+
+             slcMateria.append(
+               '<option value='+o.matId+'>'+o.matNombre+'</option>'
+             );
+
+         });
+
+        }else{
+          slcMateria.append(
+            '<option value=0>'+res.message+'</option>'
+
+          );
+        }
+    }
+
+
+    function getTemaMateria(){
+      var datos = $.ajax({
+        url: 'php/temas/getTemaMateria.php',
+        data:{
+          idMateria : slcMateria.val()
+        },
+        type: 'post',
+            dataType:'json',
+            async:false
+        }).error(function(e){
+            alert('Ocurrio un error, intente de nuevo');
+        }).responseText;
+
+        var res;
+        try{
+            res = JSON.parse(datos);
+        }catch (e){
+            alert('Error JSON ' + e);
+        }
+
+        tbodyRegistros.html('');
+        slcTema.html('');
+        if ( res.status === 'OK' ){
+          slcTema.append(
+            '<option value=0>Seleccione un tema</option>'
+          );
            var i = 1;
            $.each(res.data, function(k,o){
 
              slcTema.append(
                '<option value='+o.temId+'>'+o.temNombre+'</option>'
              );
-             slcTemaE.append(
-               '<option value='+o.temId+'>'+o.temNombre+'</option>'
-             );
-
-           i++
 
          });
 
         }else{
-          tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+
+          slcTema.append(
+            '<option value=0>'+ res.message+'</option>'
+          );
         }
     }
+
 
 function getSubtemas(){
   var datos = $.ajax({
@@ -71,35 +123,22 @@ function getSubtemas(){
 
     tbodyRegistros.html('');
     if ( res.status === 'OK' ){
-
+      slcSubtema.append(
+        '<option value=0>Seleccione subtema</option>'
+      );
        var i = 1;
        $.each(res.data, function(k,o){
 
-         tbodyRegistros.append(
-           '<tr>'+
-             '<td class="">'+i+'</td>'+
-             '<td class="">'+o.subId+'</td>'+
-             '<td class="">'+o.subNombre+'</td>'+
-             '<td class="">'+o.temNombre+'</td>'+
-
-
-             '<td class="text-center">'+
-               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.subId+'" '+
-               'style="cursor:pointer" title="Editar"></span>'+
-             '</td>'+
-
-             '<td class="text-center">'+
-             '<i id='+o.subId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
-             '</i></td>'+
-
-           '</tr>'
-       );
-       i++
+         slcSubtema.append(
+           '<option value='+o.subId+'>'+o.subNombre+'</option>'
+         );
 
      });
 
     }else{
-      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+      slcSubtema.append(
+        '<option value=0>'+res.message+'</option>'
+      );
     }
 }
 
@@ -318,8 +357,7 @@ function validar(){
 }
 
 $(document).on('ready', function(){
-  getSubtemas();
-  getTemas();
+  getMaterias();
 });
 
 btnLimpiar.on('click',limpiar);
@@ -330,3 +368,6 @@ btnAgregarE.on('click',editarSubtema);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
+
+slcMateria.on('change',getTemaMateria);
+slcTema.on('change', getSubtemas);

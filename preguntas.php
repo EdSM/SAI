@@ -81,17 +81,33 @@
             <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Preguntas</legend>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del Subtema:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar materia:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <select name="" id="slcMateria" class="form-control input-sm">
+                  </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar tema:</label>
               <div class="col-md-10">
                 <select name="" id="slcTema" class="form-control input-sm">
                   </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar subtema:</label>
+              <div class="col-md-10">
+                <select name="" id="slcSubtema" class="form-control input-sm">
+                  </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="txtNombreRev" class="col-md-2 control-label"> Pregunta:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control input-sm" id="txtPregunta" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
               </div>
             </div>
 
