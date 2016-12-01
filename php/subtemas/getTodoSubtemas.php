@@ -1,5 +1,5 @@
 <?php
-session_start();
+
   include('../Conexion.php');
   $ConexionBD = new Conexion;
   $database = $ConexionBD->conectarBD();

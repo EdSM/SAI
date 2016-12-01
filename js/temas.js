@@ -32,9 +32,6 @@ function getMaterias(){
 
     slcMateria.html('');
     slcMateriaE.html('');
-    slcMateria.append(
-     '<option value=0>Seleccione una materia</option>'
-   );
     if ( res.status === 'OK' ){
 
        var i = 1;
@@ -52,10 +49,7 @@ function getMaterias(){
      });
 
     }else{
-      slcMateria.append(
-       '<option value=0>'+res.message+'</option>'
-     );
-    
+      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
     }
 }
 

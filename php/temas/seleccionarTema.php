@@ -1,5 +1,5 @@
 <?php
-session_start();
+
   $idTema = ($_POST['idTema']);
 
   if (isset($idTema)) {
