@@ -9,9 +9,59 @@ var txtSubtema=$('#txtSubtema'),
     btnCancelarE=$('#btnCancelarE'),
     idSubtemaE=$('#idSubtemaE'),
     slcTemaE=$('#slcTemaE'),
+    slcMateria=$('#slcMateria'),
     slcTema=$('#slcTema');
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
+
+
+    function getTemaMateria(){
+      var datos = $.ajax({
+        url: 'php/temas/getTemaMateria.php',
+        data:{
+          idMateria : slcMateria.val()
+        },
+        type: 'post',
+            dataType:'json',
+            async:false
+        }).error(function(e){
+            alert('Ocurrio un error, intente de nuevo');
+        }).responseText;
+
+        var res;
+        try{
+            res = JSON.parse(datos);
+        }catch (e){
+            alert('Error JSON ' + e);
+        }
+
+
+      slcTema.html('');
+      slcTemaE.html('');
+      slcTema.append(
+                  '<option value=0>Seleccione un tema</option>'
+        );
+        if ( res.status === 'OK' ){
+
+           var i = 1;
+           $.each(res.data, function(k,o){
+
+             slcTema.append(
+               '<option value='+o.temId+'>'+o.temNombre+'</option>'
+             );
+             slcTemaE.append(
+               '<option value='+o.temId+'>'+o.temNombre+'</option>'
+             );
+
+
+         });
+
+        }else{          
+          slcTema.append(
+            '<option value=0>'+res.message+'</option>'
+          );
+        }
+    }
 
     function getTemas(){
       var datos = $.ajax({
@@ -56,7 +106,7 @@ var formEditar=$('#formEditar'),
           slcTemaE.append(
             '<option value=0>'+ res.message+'</option>'
           );
-          
+
         }
     }
 
@@ -193,7 +243,7 @@ function getSubtemas(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getSubtemas();
+          getSubtemasTema();
           swal({
             title: "",
             text: " ",
@@ -371,6 +421,46 @@ function eliminar(){
   });
 }
 
+function getMaterias(){
+  var datos = $.ajax({
+    url: 'php/materia/getTodoMaterias.php',
+    type: 'get',
+        dataType:'json',
+        async:false
+    }).error(function(e){
+        alert('Ocurrio un error, intente de nuevo');
+    }).responseText;
+
+    var res;
+    try{
+        res = JSON.parse(datos);
+    }catch (e){
+        alert('Error JSON ' + e);
+    }
+
+    slcMateria.html('');
+    slcMateria.append(
+     '<option value=0>Seleccione una materia</option>'
+   );
+    if ( res.status === 'OK' ){
+
+       var i = 1;
+
+       $.each(res.data, function(k,o){
+
+         slcMateria.append(
+          '<option value='+o.matId+'>'+o.matNombre+'</option>'
+        );
+
+     });
+
+    }else{
+      slcMateria.append(
+       '<option value=0>'+res.message +'</option>'
+     );
+    }
+}
+
 function validar(){
   if ((txtSubtema.val()==null)||(txtSubtema.val()=='')) {
     txtSubtema.focus();
@@ -383,7 +473,8 @@ function validar(){
 
 $(document).on('ready', function(){
 //  getSubtemas();
-  getTemas();
+//  getTemas();
+  getMaterias();
 });
 
 btnLimpiar.on('click',limpiar);
@@ -396,3 +487,4 @@ tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
 
 slcTema.on('change',getSubtemasTema);
+slcMateria.on('change', getTemaMateria)

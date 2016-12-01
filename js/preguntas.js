@@ -168,7 +168,7 @@ function getSubtemas(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getSubtemas();
+          getTemaMateria();
           swal({
             title: "",
             text: " ",

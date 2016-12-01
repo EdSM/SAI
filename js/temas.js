@@ -32,11 +32,12 @@ function getMaterias(){
 
     slcMateria.html('');
     slcMateriaE.html('');
+    slcMateria.append(
+     '<option value=0>Seleccione una materia</option>'
+   );
     if ( res.status === 'OK' ){
 
        var i = 1;
-       slcMateria.html('');
-       slcMateriaE.html('');
        $.each(res.data, function(k,o){
 
          slcMateria.append(
@@ -49,7 +50,12 @@ function getMaterias(){
      });
 
     }else{
-      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+      slcMateria.append(
+       '<option value=0>'+res.message+'</option>'
+     );
+      slcMateriaE.append(
+        '<option value=0>'+res.message+'</option>'
+      );
     }
 }
 
@@ -103,7 +109,7 @@ function getTemas (){
     }
 }
 
-function getTemaMaretia(){
+function getTemaMateria(){
   var datos = $.ajax({
     url: 'php/temas/getTemaMateria.php',
     data:{
@@ -182,7 +188,7 @@ function getTemaMaretia(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getTemas();
+          getTemaMaretia();
           swal({
             title: "",
             text: " ",
@@ -384,4 +390,4 @@ btnAgregarE.on('click',editarTema);
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarTema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
 
-slcMateria.on('change',getTemaMaretia);
+slcMateria.on('change',getTemaMateria);
