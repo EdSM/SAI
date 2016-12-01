@@ -341,6 +341,67 @@ function getSubtemasTema(){
         }
     }
 
+    function getPreguntasSubtema(){
+      var datos = $.ajax({
+        url: 'php/preguntas/getPreguntasSubtema.php',
+        data:{
+          idSubtema: slcSubtema.val()
+        },
+        type: 'post',
+            dataType:'json',
+            async:false
+        }).error(function(e){
+            alert('Ocurrio un error, intente de nuevo');
+        }).responseText;
+
+        var res;
+        try{
+            res = JSON.parse(datos);
+        }catch (e){
+            alert('Error JSON ' + e);
+        }
+
+        tbodyRegistros.html('');
+
+        if ( res.status === 'OK' ){
+
+           var i = 1;
+           $.each(res.data, function(k,o){
+
+
+             tbodyRegistros.append(
+               '<tr>'+
+                 '<td class="">'+i+'</td>'+
+                 '<td class="">'+o.preId+'</td>'+
+                 '<td class="">'+o.preOracion+'</td>'+
+                 '<td class="">'+o.subNombre+'</td>'+
+
+
+                 '<td class="text-center">'+
+                   '<span class="glyphicon glyphicon-edit text-primary" id="'+o.preId+'" '+
+                   'style="cursor:pointer" title="Editar"></span>'+
+                 '</td>'+
+
+                 '<td class="text-center">'+
+                 '<i id='+o.preId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
+                 '</i></td>'+
+
+               '</tr>'
+
+           );
+           i++
+
+         });
+
+        }else{
+          tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+
+        }
+
+        //alert("cambio");
+    }
+
+
     function editarSubtema(){
       var editar = $.ajax({
         url: 'php/subtemas/editarSubtema.php',
@@ -481,3 +542,4 @@ tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
 
 slcMateria.on('change',getTemaMateria);
 slcTema.on('change', getSubtemasTema);
+slcSubtema.on('change', getPreguntasSubtema);
