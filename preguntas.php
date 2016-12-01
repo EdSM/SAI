@@ -78,15 +78,7 @@
             <div class="well" id="frmAgregar">
         <div class="form-horizontal" >
           <fieldset>
-            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Subtemas</legend>
-
-            <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
-              <div class="col-md-10">
-                <select name="" id="slcTema" class="form-control input-sm">
-                  </select>
-              </div>
-            </div>
+            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Preguntas</legend>
 
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del Subtema:</label>
@@ -95,7 +87,13 @@
               </div>
             </div>
 
-
+            <div class="form-group">
+              <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
+              <div class="col-md-10">
+                <select name="" id="slcTema" class="form-control input-sm">
+                  </select>
+              </div>
+            </div>
 
             <br>
             <div class="form-group">
@@ -194,7 +192,7 @@
       <script src="js/jquery.easing.min.js"></script>
       <script src="datepicker/js/bootstrap-datepicker.js"></script>
        <script src="libreria/sweetAlert/sweetalert.min.js"></script>
-      <script src="js/subtemas.js"></script>
+      <script src="js/preguntas.js"></script>
   <script>
     //$('#collapseContenidos').addClass('in');
     $('#caIngresar').addClass('activoBorde');

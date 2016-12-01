@@ -52,62 +52,6 @@ var formEditar=$('#formEditar'),
         }
     }
 
-function getSubtemasTema(){
-  var datos = $.ajax({
-    url: 'php/subtemas/getSubtemasTema.php',
-    data:{
-      idTema: slcTema.val()
-    },
-    type: 'post',
-        dataType:'json',
-        async:false
-    }).error(function(e){
-        alert('Ocurrio un error, intente de nuevo');
-    }).responseText;
-
-    var res;
-    try{
-        res = JSON.parse(datos);
-    }catch (e){
-        alert('Error JSON ' + e);
-    }
-
-    tbodyRegistros.html('');
-    if ( res.status === 'OK' ){
-
-       var i = 1;
-       $.each(res.data, function(k,o){
-
-         tbodyRegistros.append(
-           '<tr>'+
-             '<td class="">'+i+'</td>'+
-             '<td class="">'+o.subId+'</td>'+
-             '<td class="">'+o.subNombre+'</td>'+
-             '<td class="">'+o.temNombre+'</td>'+
-
-
-             '<td class="text-center">'+
-               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.subId+'" '+
-               'style="cursor:pointer" title="Editar"></span>'+
-             '</td>'+
-
-             '<td class="text-center">'+
-             '<i id='+o.subId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
-             '</i></td>'+
-
-           '</tr>'
-       );
-       i++
-
-     });
-
-    }else{
-      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
-    }
-
-    //alert("cambio");
-}
-
 function getSubtemas(){
   var datos = $.ajax({
     url: 'php/subtemas/getTodoSubtemas.php',
@@ -374,7 +318,7 @@ function validar(){
 }
 
 $(document).on('ready', function(){
-//  getSubtemas();
+  getSubtemas();
   getTemas();
 });
 
@@ -386,5 +330,3 @@ btnAgregarE.on('click',editarSubtema);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
-
-slcTema.on('change',getSubtemasTema);
