@@ -61,6 +61,46 @@ var formEditar=$('#formEditar'),
         }
     }
 
+    function getCategorias(){
+      var datos = $.ajax({
+        url: 'php/categoria/getTodoCategorias.php',
+        type: 'get',
+            dataType:'json',
+            async:false
+        }).error(function(e){
+            alert('Ocurrio un error, intente de nuevo');
+        }).responseText;
+
+        var res;
+        try{
+            res = JSON.parse(datos);
+        }catch (e){
+            alert('Error JSON ' + e);
+        }
+
+        slcCategoria.html('');
+        slcCategoria.append(
+          '<option value=0>Seleccionar una categoría de pregunta</option>'
+        );
+        if ( res.status === 'OK' ){
+
+           var i = 1;
+           $.each(res.data, function(k,o){
+
+             slcCategoria.append(
+               '<option value='+o.catId+'>'+o.catNombre+'</option>'
+             );
+
+         });
+
+        }else{
+          slcCategoria.append(
+            '<option value=0>'+res.message+'</option>'
+
+          );
+        }
+    }
+
 
     function getTemaMateria(){
       var datos = $.ajax({
@@ -427,6 +467,7 @@ function validar(){
 
 $(document).on('ready', function(){
   getMaterias();
+  getCategorias();
 });
 
 btnLimpiar.on('click',limpiar);
