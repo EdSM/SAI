@@ -81,7 +81,7 @@
             <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Subtemas</legend>
 
             <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar Tema:</label>
               <div class="col-md-10">
                 <select name="" id="slcTema" class="form-control input-sm">
                   </select>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del Subtema:</label>
+              <label for="txtNombreRev" class="col-md-2 control-label"> Título del Subtema:</label>
               <div class="col-md-10">
                 <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
               </div>

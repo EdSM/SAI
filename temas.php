@@ -81,7 +81,7 @@
 
 
             <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label">Saleccionar Materia:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Saleccionar materia:</label>
               <div class="col-md-10">
                 <select name="" id="slcMateria" class="form-control input-sm">
                   </select>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
+              <label for="txtNombreRev" class="col-md-2 control-label">Título del tema:</label>
               <div class="col-md-10">
                 <input type="text" class="form-control input-sm" id="txtTema" placeholder="Título del tema" maxlength="500" spellcheck="true">
               </div>

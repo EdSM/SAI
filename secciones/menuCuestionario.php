@@ -13,6 +13,13 @@
   </li>
 
   <li id="liCondGT" style="cursor:pointer">
+      <a class="grisClaro texto3d" href="categorias.php" >
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        Categoría de preguntas
+      </a>
+  </li>
+  <hr>
+  <li id="liCondGT" style="cursor:pointer">
       <a class="grisClaro texto3d" href="temas.php" >
         <i class="fa fa-align-justify" aria-hidden="true"></i>
         Temas
@@ -24,18 +31,14 @@
         Subtemas
       </a>
   </li>
-  <li id="liCondGT" style="cursor:pointer">
-      <a class="grisClaro texto3d" href="categorias.php" >
-        <i class="fa fa-list-ul" aria-hidden="true"></i>
-        Categoría de preguntas
-      </a>
-  </li>
+
   <li id="liCondGT" style="cursor:pointer">
       <a class="grisClaro texto3d" href="preguntas.php" >
         <i class="fa fa-question-circle" aria-hidden="true"></i>
         Preguntas
       </a>
   </li>
+  <hr>  
 
   <li id="liCondGT" style="cursor:pointer">
       <a class="grisClaro texto3d" href="index.php" >
