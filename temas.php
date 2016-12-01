@@ -79,6 +79,15 @@
           <fieldset>
             <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Tema</legend>
 
+
+            <div class="form-group">
+              <label for="slctMateria" class="col-md-2 control-label">Saleccionar Materia:</label>
+              <div class="col-md-10">
+                <select name="" id="slcMateria" class="form-control input-sm">
+                  </select>
+              </div>
+            </div>
+
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
               <div class="col-md-10">
@@ -86,13 +95,6 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label"> Materia:</label>
-              <div class="col-md-10">
-                <select name="" id="slcMateria" class="form-control input-sm">
-                  </select>
-              </div>
-            </div>
 
             <br>
             <div class="form-group">

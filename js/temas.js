@@ -103,6 +103,59 @@ function getTemas (){
     }
 }
 
+function getTemaMaretia(){
+  var datos = $.ajax({
+    url: 'php/temas/getTemaMateria.php',
+    data:{
+      idMateria : slcMateria.val()
+    },
+    type: 'post',
+        dataType:'json',
+        async:false
+    }).error(function(e){
+        alert('Ocurrio un error, intente de nuevo');
+    }).responseText;
+
+    var res;
+    try{
+        res = JSON.parse(datos);
+    }catch (e){
+        alert('Error JSON ' + e);
+    }
+
+    tbodyRegistros.html('');
+    if ( res.status === 'OK' ){
+
+       var i = 1;
+       $.each(res.data, function(k,o){
+
+         tbodyRegistros.append(
+           '<tr>'+
+             '<td class="">'+i+'</td>'+
+             '<td class="">'+o.temId+'</td>'+
+             '<td class="">'+o.temNombre+'</td>'+
+             '<td class="">'+o.matNombre+'</td>'+
+
+             '<td class="text-center">'+
+               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.temId+'" '+
+               'style="cursor:pointer" title="Editar"></span>'+
+             '</td>'+
+
+             '<td class="text-center">'+
+             '<i id='+o.temId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
+             '</i></td>'+
+
+           '</tr>'
+       );
+       i++
+
+     });
+
+    }else{
+      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+    }
+}
+
     function agregarTema(){
       if (!validar()) {
         return false;
@@ -318,7 +371,7 @@ function validar(){
 }
 
 $(document).on('ready', function(){
-  getTemas();
+  //getTemas();
   getMaterias();
 });
 
@@ -330,3 +383,5 @@ btnAgregarE.on('click',editarTema);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarTema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
+
+slcMateria.on('change',getTemaMaretia);
