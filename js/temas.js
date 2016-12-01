@@ -188,7 +188,7 @@ function getTemaMateria(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getTemaMaretia();
+          getTemaMateria();
           swal({
             title: "",
             text: " ",
