@@ -251,15 +251,16 @@ function getSubtemasTema(){
     //alert("cambio");
 }
 
-    function agregarSubtema(){
+    function agregarPregunta(){
       if (!validar()) {
         return false;
       }
       var editar = $.ajax({
-        url: 'php/subtemas/agregarSubtema.php',
+        url: 'php/subtemas/agregarPregunta.php',
         data: {
-          nombreSubtema:txtSubtema.val(),
-          idTema:slcTema.val()
+          nombrePregunta:txtPregunta.val(),
+          idSubtema:slcSubtema.val(),
+          idCategoria:slcCategoria.val()
         },
         type: 'post',
         dataType:'json',
@@ -277,7 +278,7 @@ function getSubtemasTema(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getTemaMateria();
+          getPreguntasSubtema();
           swal({
             title: "",
             text: " ",
@@ -532,7 +533,7 @@ $(document).on('ready', function(){
 });
 
 btnLimpiar.on('click',limpiar);
-btnAgregar.on('click',agregarSubtema);
+btnAgregar.on('click',agregarPregunta);
 
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarSubtema);

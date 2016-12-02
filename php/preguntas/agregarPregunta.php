@@ -1,12 +1,14 @@
 <?php
-  $nombreSubtema = ($_POST['nombreSubtema']);
-  $idTema = ($_POST['idTema']);
+  $nombrePregunta = ($_POST['nombrePregunta']);
+  $idSubtema = ($_POST['idSubtema']);
+  $idCategoria = ($_POST['idCategoria']);
 
-        if (isset($nombreSubtema)) {
+
+        if (isset($idSubtema)) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'INSERT INTO subtemas (subNombre, subActivo, subTema) VALUES("'.$nombreSubtema.'", 1, "'.$idTema.'");';
+          $consulta = 'INSERT INTO preguntas (preOracion, preActivo, preSubtema, preCategoria) VALUES("'.$nombrePregunta.'", 1, '.$idSubtema.', '.$idCategoria.');';
           //$Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }
