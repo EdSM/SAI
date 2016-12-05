@@ -127,7 +127,7 @@
                 <label for="txtNombreRev" class="col-md-12"> Tipo de respuesta:</label>
               <div class="col-md-6">
                 <div class="form-group text-center">
-                  <label><input type="radio" name="rdoRespuesta" value="4"> Cuadro de texto abierto y opción NA:</label>
+                  <label><input type="radio" name="rdoRespuesta" value="4"> Cuadro de texto abierto y opción NA.</label>
                   <br><br>
                 <!--    <div class="row">
                     <div class="col-md-4">
@@ -225,9 +225,10 @@
                 <tr>
                   <th class="">No.</th>
                   <th class="">Id</th>
-                  <th class="col-md-6">Preguntas</th>
+                  <th class="col-md-5">Preguntas</th>
                   <th class="col-md-2">Subtema</th>
                   <th class="col-md-2">Categoría</th>
+                  <th class="col-md-1">Respuesta correcta</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->

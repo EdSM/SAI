@@ -393,6 +393,7 @@ function getSubtemasTema(){
                  '<td class="">'+o.preOracion+'</td>'+
                  '<td class="">'+o.subNombre+'</td>'+
                  '<td class="">'+o.catNombre+'</td>'+
+                 '<td class="">'+o.lisOpcion+'</td>'+
                  '<td class="text-center">'+
                    '<span class="glyphicon glyphicon-edit text-primary" id="'+o.preId+'" '+
                    'style="cursor:pointer" title="Editar"></span>'+
