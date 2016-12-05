@@ -15,7 +15,9 @@ var
     slcSubtema=$('#slcSubtema'),
     slcCategoria=$('#slcCategoria'),
     slcSubtema=$('#slcSubtema'),
-    txtPregunta=$('#txtPregunta');
+    txtPregunta=$('#txtPregunta'),
+    chkRespuesta=$('#chkRespuesta'),
+    txtRespuesta=$('#txtRespuesta');
 
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
@@ -459,6 +461,16 @@ function limpiar(){
   txtPregunta.val('');
 }
 
+function verificaEdoCheck(){
+  if (chkRespuesta.is(':checked')) {
+    txtRespuesta.prop('disabled', true);
+    txtRespuesta.val('');
+  }
+  else {
+    txtRespuesta.prop('disabled', false);
+  }
+}
+
 function eliminarSubtema(id){
   var editar = $.ajax({
     url: 'php/subtemas/eliminarSubtema.php',
@@ -558,3 +570,5 @@ tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
 slcMateria.on('change',getTemaMateria);
 slcTema.on('change', getSubtemasTema);
 slcSubtema.on('change', getPreguntasSubtema);
+
+chkRespuesta.on('click', verificaEdoCheck);
