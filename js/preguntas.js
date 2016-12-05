@@ -18,6 +18,7 @@ var
     txtPregunta=$('#txtPregunta'),
     chkRespuesta=$('#chkRespuesta'),
     txtRespuesta=$('#txtRespuesta'),
+    slcResCorrecta=$('#slcResCorrecta'),
     rdoRespuesta = document.getElementsByName("rdoRespuesta");
 
 var formEditar=$('#formEditar'),
@@ -259,17 +260,22 @@ function getSubtemasTema(){
     }
 
     function agregarPregunta(){
-    /*  if (!validar()) {
+     if (!validar()) {
         return false;
-      }*/
+      }
       valorRadio = getRadioButtonSelectedValue();
-      alert(valorRadio);
-    /*  var editar = $.ajax({
+      resCorrecta = valorRadio;              //si se eligio solo abierta
+      if (valorRadio == 5) {                 //radio 5 = selecciono lista cerrada
+        resCorrecta = slcResCorrecta.val();  //obtener respusta correcta de la lista cerrada
+      }
+      //alert(valorRadio);
+      var editar = $.ajax({
         url: 'php/preguntas/agregarPregunta.php',
         data: {
           nombrePregunta:txtPregunta.val(),
           idSubtema:slcSubtema.val(),
-          idCategoria:slcCategoria.val()
+          idCategoria:slcCategoria.val(),
+          idLista:resCorrecta
         },
         type: 'post',
         dataType:'json',
@@ -305,7 +311,7 @@ function getSubtemasTema(){
             showConfirmButton: true
           });
         }
-        */
+
     }
 
 
@@ -557,6 +563,21 @@ function validar(){
     swal("Debe seleccionar una categoría de pregunta.")
     slcCategoria.focus();
     return false;
+  }
+  valorRadio = getRadioButtonSelectedValue();
+  if (valorRadio != 4){
+      if (valorRadio == 5) {
+        if (slcResCorrecta.val() == 0) {
+          swal("Debe seleccionar la respuesta correcta.")
+          slcResCorrecta.focus();
+          return false;
+        }
+      }
+      else {
+        swal("Debe seleccionar el tipo de respuesta.")
+        slcCategoria.focus();
+        return false;
+      }
   }
   return true;
 }
