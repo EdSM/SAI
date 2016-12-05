@@ -486,11 +486,11 @@ function verificaEdoCheck(){
   }
 }
 
-function eliminarSubtema(id){
+function eliminarPregunta(id){
   var editar = $.ajax({
-    url: 'php/subtemas/eliminarSubtema.php',
+    url: 'php/preguntas/eliminarPregunta.php',
     data: {
-      idSubtema:id
+      idPregunta:id
     },
     type: 'post',
     dataType:'json',
@@ -507,7 +507,7 @@ function eliminarSubtema(id){
     }
 
     if ( resultado.status === 'OK' ){
-      getSubtemas();
+      getPreguntasSubtema();
       swal({
         title: "",
         text: resultado.message,
@@ -530,7 +530,7 @@ function eliminarSubtema(id){
 function eliminar(){
   var id = $(this).attr('id');
   swal({
-    title: "¿Seguro de eliminar el subtema seleccionada?",
+    title: "¿Seguro de eliminar la pregunta seleccionada?",
     text: "",
     type: "warning",
     showCancelButton: true,
@@ -539,7 +539,7 @@ function eliminar(){
     closeOnConfirm: false
   },
   function(){
-    eliminarSubtema(id);
+    eliminarPregunta(id);
   });
 }
 
