@@ -81,7 +81,7 @@
             <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Preguntas</legend>
 
             <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label">Saleccionar materia:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar materia:</label>
               <div class="col-md-10">
                 <select name="" id="slcMateria" class="form-control input-sm">
                   </select>
@@ -183,10 +183,11 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th class="col-md-1">No.</th>
-                  <th class="col-md-1">Id</th>
-                  <th class="col-md-4">Subtemas</th>
-                  <th class="col-md-4">Tema</th>
+                  <th class="">No.</th>
+                  <th class="">Id</th>
+                  <th class="col-md-6">Preguntas</th>
+                  <th class="col-md-2">Subtema</th>
+                  <th class="col-md-2">Categoría</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->

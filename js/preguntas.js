@@ -256,7 +256,7 @@ function getSubtemasTema(){
         return false;
       }
       var editar = $.ajax({
-        url: 'php/subtemas/agregarPregunta.php',
+        url: 'php/preguntas/agregarPregunta.php',
         data: {
           nombrePregunta:txtPregunta.val(),
           idSubtema:slcSubtema.val(),
@@ -376,8 +376,7 @@ function getSubtemasTema(){
                  '<td class="">'+o.preId+'</td>'+
                  '<td class="">'+o.preOracion+'</td>'+
                  '<td class="">'+o.subNombre+'</td>'+
-
-
+                 '<td class="">'+o.catNombre+'</td>'+
                  '<td class="text-center">'+
                    '<span class="glyphicon glyphicon-edit text-primary" id="'+o.preId+'" '+
                    'style="cursor:pointer" title="Editar"></span>'+
@@ -457,7 +456,7 @@ function cancelarEditar(){
 }
 
 function limpiar(){
-  txtSubtema.val('');
+  txtPregunta.val('');
 }
 
 function eliminarSubtema(id){
@@ -518,12 +517,27 @@ function eliminar(){
 }
 
 function validar(){
-  if ((txtSubtema.val()==null)||(txtSubtema.val()=='')) {
-    txtSubtema.focus();
-    swal("Debe ingresar el nombre del subtema.")
+  if (slcMateria.val()==0) {
+  //  txtSubtema.focus();
+    swal("Debe seleccionar una materia.");
+    slcMateria.focus();
     return false;
   }
-
+  if (slcTema.val()==0) {
+    swal("Debe seleccionar un tema.");
+    slcTema.focus();
+    return false;
+  }
+  if (slcSubtema.val()==0)  {
+    swal("Debe seleccionar un subtema.")
+    slcSubtema.focus();
+    return false;
+  }
+  if (slcCategoria.val()==0) {
+    swal("Debe seleccionar una categoría de pregunta.")
+    slcCategoria.focus();
+    return false;
+  }
   return true;
 }
 

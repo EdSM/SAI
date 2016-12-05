@@ -12,7 +12,7 @@
    }
    else{
      $idSubtema = ($_POST['idSubtema']);
-     $consulta = 'SELECT p.preId, p.preOracion, s.subNombre FROM preguntas p, subtemas s WHERE p.preSubtema = '.$idSubtema.' AND p.preSubtema  = s.subId;';
+     $consulta = 'SELECT p.preId, p.preOracion, s.subNombre, c.catNombre FROM preguntas p, subtemas s, categorias c WHERE p.preSubtema = '.$idSubtema.' AND p.preSubtema  = s.subId AND p.preCategoria = c.catId;';
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {
@@ -22,9 +22,11 @@
            $preId = $row['preId'];
            $subNombre = $row['subNombre'];
            $preOracion = $row['preOracion'];
+           $catNombre = $row['catNombre'];
            $data[]= array('preId'=>$preId,
                           'subNombre' => $subNombre,
-                          'preOracion' => $preOracion
+                          'preOracion' => $preOracion,
+                          'catNombre' => $catNombre
             );
            $i++;
 
