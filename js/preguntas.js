@@ -17,7 +17,8 @@ var
     slcSubtema=$('#slcSubtema'),
     txtPregunta=$('#txtPregunta'),
     chkRespuesta=$('#chkRespuesta'),
-    txtRespuesta=$('#txtRespuesta');
+    txtRespuesta=$('#txtRespuesta'),
+    rdoRespuesta = document.getElementsByName("rdoRespuesta");
 
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
@@ -252,12 +253,18 @@ function getSubtemasTema(){
 
     //alert("cambio");
 }
+    function getRadioButtonSelectedValue(){
+        for(i=0;i<rdoRespuesta.length;i++)
+            if(rdoRespuesta[i].checked) return rdoRespuesta[i].value;
+    }
 
     function agregarPregunta(){
-      if (!validar()) {
+    /*  if (!validar()) {
         return false;
-      }
-      var editar = $.ajax({
+      }*/
+      valorRadio = getRadioButtonSelectedValue();
+      alert(valorRadio);
+    /*  var editar = $.ajax({
         url: 'php/preguntas/agregarPregunta.php',
         data: {
           nombrePregunta:txtPregunta.val(),
@@ -298,6 +305,7 @@ function getSubtemasTema(){
             showConfirmButton: true
           });
         }
+        */
     }
 
 

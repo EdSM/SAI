@@ -127,7 +127,7 @@
                 <label for="txtNombreRev" class="col-md-12"> Tipo de respuesta para la pregunta:</label>
               <div class="col-md-6">
                 <div class="form-group text-center">
-                  <label><input type="radio" name="rdoRespuesta"> Cuadro de texto abierto y opción NA:</label>
+                  <label><input type="radio" name="rdoRespuesta" value="1"> Cuadro de texto abierto y opción NA:</label>
                   <br><br>
                   <div class="row">
                     <div class="col-md-4">
@@ -142,7 +142,7 @@
 
               <div class="col-md-6">
                 <div class="form-group text-center">
-                  <label><input type="radio" name="rdoRespuesta"> Lista cerrada: SI/NO/NA</label>.
+                  <label><input type="radio" name="rdoRespuesta" value="2"> Lista cerrada: SI/NO/NA</label>.
                   <br><br>
                   <div class="col-md-2 col-md-offset-4">
                     <select name="" id="slcCategoria" class="form-control input-sm">
