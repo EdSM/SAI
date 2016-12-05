@@ -16,7 +16,7 @@
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {
-         $i=0;
+         
          while($row = mysqli_fetch_array($result, MYSQL_BOTH)) {
           //$entNombre =  utf8_encode ( $row['entNombre']);
            $preId = $row['preId'];
@@ -30,7 +30,7 @@
                           'catNombre' => $catNombre,
                           'lisOpcion' => $lisOpcion
             );
-           $i++;
+
 
         }
          //mysqli_free_result($result);

@@ -1,6 +1,6 @@
 <?php
-class ConsultasMateria {
-public function consultaGetMaterias($consulta) {
+class ConsultasPregunta {
+public function consultaGetPreguntaRespuestaC($consulta) {
     include('../Consultas.php');
     $Consultas = new Consultas;
     $ConexionBD = $Consultas->establecerConexion();
@@ -18,18 +18,23 @@ public function consultaGetMaterias($consulta) {
          if( $result->num_rows > 0 ) {
            $i=0;
            while($row = mysqli_fetch_array($result, MYSQL_BOTH)) {
-             $matNombre = $row['matNombre'];
-             $matId = $row['matId'];
-             $data[]= array('matId'=>$matId, 'matNombre' => $matNombre);
-             $i++;
-
-           }
-           $response = array(
-               'status' => 'OK',
-               'data' => $data,
-               'message' => 'Resultados obtenidos'
-            );
-
+             $preId = $row['preId'];
+             $preOracion = $row['preOracion'];
+             $preSubtema = $row['preSubtema'];
+             $preCategoria = $row['preCategoria'];
+             $preLista1 = $row['preLista1'];
+             $data[]= array('preId'=>$preId,
+                            'preOracion' => $preOracion,
+                            'preSubtema' => $preSubtema,
+                            'preCategoria' => $preCategoria,
+                            'preLista1' => $preLista1
+              );
+            }
+            $response = array(
+                'status' => 'OK',
+                'data' => $data,
+                'message' => 'Resultados obtenidos'
+             );
          } else {
            $response = array(
              'status' => 'ERROR',

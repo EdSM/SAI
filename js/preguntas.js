@@ -4,10 +4,12 @@ var btnAgregar = $('#btnAgregar'),
 var tbodyRegistros=$('#tbodyRegistros'),
     tblRegistros=$('#tblRegistros');
 var
-    txtSubtemaE=$('#txtSubtemaE'),
+    slcSubtemaE=$('#slcSubtemaE'),
+    slcCategoriaE=$('#slcCategoriaE'),
+    txtPreguntaE=$('#txtPreguntaE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
-    idSubtemaE=$('#idSubtemaE'),
+    idPreguntaE=$('#idPreguntaE'),
 
     slcTemaE=$('#slcTemaE'),
     slcMateria=$('#slcMateria'),
@@ -83,6 +85,7 @@ var formEditar=$('#formEditar'),
         }
 
         slcCategoria.html('');
+        slcCategoriaE.html('');
         slcCategoria.append(
           '<option value=0>Seleccionar una categoría de pregunta</option>'
         );
@@ -92,6 +95,9 @@ var formEditar=$('#formEditar'),
            $.each(res.data, function(k,o){
 
              slcCategoria.append(
+               '<option value='+o.catId+'>'+o.catNombre+'</option>'
+             );
+             slcCategoriaE.append(
                '<option value='+o.catId+'>'+o.catNombre+'</option>'
              );
 
@@ -209,6 +215,7 @@ function getSubtemasTema(){
     }
 
     slcSubtema.html('');
+    slcSubtemaE.html('');
     slcSubtema.append(
       '<option value=0>Seleccione un subtema</option>'
     );
@@ -220,7 +227,9 @@ function getSubtemasTema(){
          slcSubtema.append(
            '<option value='+o.subId+'>'+o.subNombre+'</option>'
          );
-
+         slcSubtemaE.append(
+           '<option value='+o.subId+'>'+o.subNombre+'</option>'
+         );
         /* tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
@@ -315,15 +324,15 @@ function getSubtemasTema(){
     }
 
 
-    function seleccionarSubtema(){
+    function seleccionarPregunta(){
       frmAgregar.addClass('hidden');
       formEditar.removeClass('hidden');
       tblRegistros.addClass('hidden');
       var id = $(this).attr('id');
       var datos = $.ajax({
-        url: 'php/subtemas/seleccionarSubtema.php',
+        url: 'php/preguntas/seleccionarPregunta.php',
         data: {
-          idSubtema: id
+          idPregunta: id
         },
         type: 'post',
             dataType:'json',
@@ -339,17 +348,22 @@ function getSubtemasTema(){
             alert('Error JSON ' + e);
         }
 
-        txtSubtemaE.val('');
+        txtPreguntaE.val('');
 
-        idSubtemaE.val('');
+
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtSubtemaE.val(o.subNombre);
-              idSubtemaE.val(o.subId);
+              txtPreguntaE.val(o.preOracion);
+              idPreguntaE.val(o.preId);
 
-              slcTemaE.find('option').each(function(){
-              if ( o.subTema == $(this).val() )
-                slcTemaE.val(o.subTema);
+              slcSubtemaE.find('option').each(function(){
+              if ( o.preSubtema == $(this).val() )
+                slcSubtemaE.val(o.preSubtema);
+              });
+
+              slcCategoriaE.find('option').each(function(){
+              if ( o.preCategoria == $(this).val() )
+                slcCategoriaE.val(o.preCategoria);
               });
 
             });
@@ -594,7 +608,7 @@ btnAgregar.on('click',agregarPregunta);
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarSubtema);
 
-tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
+tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarPregunta);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
 
 slcMateria.on('change',getTemaMateria);
