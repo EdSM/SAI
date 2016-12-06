@@ -10,6 +10,8 @@ var
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
     idPreguntaE=$('#idPreguntaE'),
+    rdoResAbierto=$('#rdoResAbierto'),
+    rdoResCerrado=$('#rdoResCerrado'),
 
     slcTemaE=$('#slcTemaE'),
     slcMateria=$('#slcMateria'),
@@ -525,13 +527,50 @@ function limpiar(){
   txtPregunta.val('');
 }
 
-function verificaEdoCheck(){
+/*function verificaEdoCheck(){
   if (chkRespuesta.is(':checked')) {
     txtRespuesta.prop('disabled', true);
     txtRespuesta.val('');
   }
   else {
     txtRespuesta.prop('disabled', false);
+  }
+}*/
+
+function vefidicaEdoCheckRdoCE(){
+  if (rdoResECerrado.is(':checked')) {
+    slcResCorrectaE.prop('disabled', false);
+  }
+  else {
+    slcResCorrectaE.prop('disabled', true );
+  }
+}
+
+function vefidicaEdoCheckRdoAE(){
+  if (rdoResEAbierto.is(':checked')) {
+    slcResCorrectaE.prop('disabled', true);
+  }
+  else {
+    slcResCorrectaE.prop('disabled', false);
+  }
+}
+
+
+function vefidicaEdoCheckRdoC(){
+  if (rdoResCerrado.is(':checked')) {
+    slcResCorrecta.prop('disabled', false);
+  }
+  else {
+    slcResCorrecta.prop('disabled', true );
+  }
+}
+
+function vefidicaEdoCheckRdoA(){
+  if (rdoResAbierto.is(':checked')) {
+    slcResCorrecta.prop('disabled', true);
+  }
+  else {
+    slcResCorrecta.prop('disabled', false);
   }
 }
 
@@ -652,4 +691,9 @@ slcMateria.on('change',getTemaMateria);
 slcTema.on('change', getSubtemasTema);
 slcSubtema.on('change', getPreguntasSubtema);
 
-chkRespuesta.on('click', verificaEdoCheck);
+rdoResEAbierto.on('click',vefidicaEdoCheckRdoAE)
+rdoResECerrado.on('click',vefidicaEdoCheckRdoCE);
+
+rdoResAbierto.on('click',vefidicaEdoCheckRdoA)
+rdoResCerrado.on('click',vefidicaEdoCheckRdoC);
+//chkRespuesta.on('click', verificaEdoCheck);
