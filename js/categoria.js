@@ -37,7 +37,7 @@ function getCategorias(){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-             '<td class="">'+o.catId+'</td>'+
+            // '<td class="">'+o.catId+'</td>'+
              '<td class="">'+o.catNombre+'</td>'+
 
              '<td class="text-center">'+

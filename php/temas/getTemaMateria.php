@@ -11,7 +11,7 @@ session_start();
    }
    else{
      $idMateria = ($_POST['idMateria']);
-     $consulta = "SELECT t.temId, t.temNombre, m.matNombre FROM temas t, materias m WHERE t.temMateria = ".$idMateria." AND t.temMateria=m.matId  ;";
+     $consulta = "SELECT t.temId, t.temNombre, m.matNombre FROM temas t, materias m WHERE t.temMateria = ".$idMateria." AND t.temMateria=m.matId  ORDER BY t.temNombre;";
      if ( $result = $database->query($consulta) ) {
        if( $result->num_rows > 0 ) {
          $i=0;

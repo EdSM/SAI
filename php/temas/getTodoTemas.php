@@ -11,7 +11,7 @@ session_start();
       );
    }
    else{
-     $consulta = "SELECT t.temId, t.temNombre, m.matNombre FROM temas t, materias m WHERE t.temMateria=m.matId  ;";
+     $consulta = "SELECT t.temId, t.temNombre, m.matNombre FROM temas t, materias m WHERE t.temMateria=m.matId  ORDER BY m.matNombre;";
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {

@@ -38,7 +38,16 @@
         Preguntas
       </a>
   </li>
-  <hr>  
+  <hr>
+
+
+  <li id="liCondGT" style="cursor:pointer">
+      <a class="grisClaro texto3d" href="cuestionarioCrear.php" >
+        <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+        Crear Cuestionario
+      </a>
+  </li>
+
 
   <li id="liCondGT" style="cursor:pointer">
       <a class="grisClaro texto3d" href="index.php" >

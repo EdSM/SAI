@@ -11,7 +11,7 @@
       );
    }
    else{
-     $consulta = "SELECT matId, matNombre FROM materias;";
+     $consulta = "SELECT matId, matNombre FROM materias ORDER BY matNombre;";
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {

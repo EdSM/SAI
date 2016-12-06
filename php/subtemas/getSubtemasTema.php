@@ -12,7 +12,7 @@
    }
    else{
      $idTema = ($_POST['idTema']);
-     $consulta = 'SELECT s.subId, s.subNombre, t.temNombre FROM subtemas s, temas t WHERE s.subTema = '.$idTema.' AND s.subTema = t.temId;';
+     $consulta = 'SELECT s.subId, s.subNombre, t.temNombre FROM subtemas s, temas t WHERE s.subTema = '.$idTema.' AND s.subTema = t.temId ORDER BY s.subNombre;';
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {

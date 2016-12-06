@@ -85,7 +85,7 @@ function getTemas (){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-             '<td class="">'+o.temId+'</td>'+
+            // '<td class="">'+o.temId+'</td>'+
              '<td class="">'+o.temNombre+'</td>'+
              '<td class="">'+o.matNombre+'</td>'+
 
@@ -138,7 +138,7 @@ function getTemaMateria(){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-             '<td class="">'+o.temId+'</td>'+
+            // '<td class="">'+o.temId+'</td>'+
              '<td class="">'+o.temNombre+'</td>'+
              '<td class="">'+o.matNombre+'</td>'+
 

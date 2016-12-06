@@ -35,6 +35,7 @@
               <li> <!--   {{ HTML::link('/inicio2', Session::get('nombre')) }} --></li>
             <li class="dropdown">
               <!--    <a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-clock-o"></i> Historial<b class="caret"></b></a> -->
+
              </li>
 
             <li class="dropdown">
@@ -77,8 +78,7 @@
             <div class="well" id="frmAgregar">
         <div class="form-horizontal" >
           <fieldset>
-            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Tema</legend>
-
+            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Subtemas</legend>
 
             <div class="form-group">
               <label for="slctMateria" class="col-md-2 control-label">Saleccionar materia:</label>
@@ -89,11 +89,20 @@
             </div>
 
             <div class="form-group">
-              <label for="txtNombreRev" class="col-md-2 control-label">Título del tema:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar Tema:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtTema" placeholder="Título del tema" maxlength="500" spellcheck="true">
+                <select name="" id="slcTema" class="form-control input-sm">
+                  </select>
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="txtNombreRev" class="col-md-2 control-label"> Título del Subtema:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+              </div>
+            </div>
+
 
 
             <br>
@@ -103,7 +112,10 @@
                   <div class="col-md-4">
                       <button class="btn btn-primary btn-md" id="btnAgregar"><span class="glyphicon glyphicon-floppy-disk"></span> Agregar</button>
                   </div>
-
+                  <!--  <div class="col-md-4">
+                      <button class="btn btn-primary btn-md" id="btnLimpiar"><i class="fa fa-eraser" aria-hidden="true"></i> Limpiar</button>
+                  </div>
+                  -->
                   <div class="col-md-4">
                       <button class="btn btn-danger btn-md" id="btnLimpiar"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
                   </div>
@@ -119,18 +131,19 @@
       <div class="well hidden" id="formEditar">
   <div class="form-horizontal" >
     <fieldset>
-      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar tema</legend>
+      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar subtema</legend>
 
       <div class="form-group">
-        <label for="txtNombreRev" class="col-md-2 control-label"> Título del tema:</label>
+        <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del subtema:</label>
         <div class="col-md-10">
-          <input type="text" class="form-control input-sm" id="txtTemaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+          <input type="text" class="form-control input-sm" id="txtSubtemaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
         </div>
       </div>
+
       <div class="form-group">
-        <label for="slctMateria" class="col-md-2 control-label"> Materia:</label>
+        <label for="slctMateria" class="col-md-2 control-label"> Tema:</label>
         <div class="col-md-10">
-          <select name="" id="slcMateriaE" class="form-control input-sm">
+          <select name="" id="slcTemaE" class="form-control input-sm">
             </select>
         </div>
       </div>
@@ -139,7 +152,7 @@
         <div class="col-md-9 col-md-offset-3">
           <button class="btn btn-primary btn-sm" id="btnAgregarE"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
           <button class="btn btn-danger btn-sm" id="btnCancelarE"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
-          <input type="hidden" name="idTemaE" id="idTemaE" >
+          <input type="hidden" name="idSubtemaE" id="idSubtemaE" >
         </div>
       </div>
     </fieldset>
@@ -150,15 +163,15 @@
 
       <div class="row" id="tblRegistros">
         <div class="col-md-12">
-          <h3>Temas registrados:</h3>
+          <h3>Subtemas registradas:</h3>
           <div class="table-responsive" id="tblServicios">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
                   <th class="col-md-1">No.</th>
-                <!--    <th class="col-md-1">Id</th> -->  
-                  <th class="col-md-6">Tema</th>
-                  <th class="col-md-2">Materia</th>
+                  <th class="col-md-1">Id</th>
+                  <th class="col-md-4">Subtemas</th>
+                  <th class="col-md-4">Tema</th>
                   <th class="col-md-1 text-center">Modificar</th>
                   <th class="col-md-1 text-center">Eliminar</th>
                 <!--    <th class="col-md-1">Eliminar</th> -->
@@ -189,7 +202,7 @@
       <script src="js/jquery.easing.min.js"></script>
       <script src="datepicker/js/bootstrap-datepicker.js"></script>
        <script src="libreria/sweetAlert/sweetalert.min.js"></script>
-      <script src="js/temas.js"></script>
+      <script src="js/cuestionarioCrear.js"></script>
   <script>
     //$('#collapseContenidos').addClass('in');
     $('#caIngresar').addClass('activoBorde');

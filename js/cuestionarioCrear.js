@@ -56,7 +56,7 @@ var formEditar=$('#formEditar'),
 
          });
 
-        }else{
+        }else{          
           slcTema.append(
             '<option value=0>'+res.message+'</option>'
           );
@@ -139,7 +139,7 @@ function getSubtemasTema(){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-          //   '<td class="">'+o.subId+'</td>'+
+             '<td class="">'+o.subId+'</td>'+
              '<td class="">'+o.subNombre+'</td>'+
              '<td class="">'+o.temNombre+'</td>'+
 

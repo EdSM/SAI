@@ -37,7 +37,7 @@ function getMaterias(){
          tbodyRegistros.append(
            '<tr>'+
              '<td class="">'+i+'</td>'+
-             '<td class="">'+o.matId+'</td>'+
+//             '<td class="">'+o.matId+'</td>'+
              '<td class="">'+o.matNombre+'</td>'+
 
              '<td class="text-center">'+

@@ -11,7 +11,7 @@ session_start();
       );
    }
    else{
-     $consulta = "SELECT catId, catNombre FROM categorias;";
+     $consulta = "SELECT catId, catNombre FROM categorias ORDER BY catNombre;";
      if ( $result = $database->query($consulta) ) {
 
        if( $result->num_rows > 0 ) {
