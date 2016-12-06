@@ -146,6 +146,7 @@
                 <div class="form-group text-center">
                   <label><input type="radio" name="rdoRespuesta" value="5"> Lista cerrada: SI/NO/NA</label>.
                   <br><br>
+                  
                   <div class="col-md-6 col-md-offset-3">
                     <select name="" id="slcResCorrecta" class="form-control input-sm">
                       <option value="0">Seleccione respuesta correcta</option>
@@ -210,6 +211,47 @@
           <input type="text" class="form-control input-sm" id="txtPreguntaE" placeholder="Ingrese pregunta" maxlength="500" spellcheck="true">
         </div>
       </div>
+
+      <br>
+      <hr>
+      <br>
+      <div class="row">
+          <label for="txtNombreRev" class="col-md-12"> Tipo de respuesta:</label>
+        <div class="col-md-6">
+          <div class="form-group text-center">
+            <label><input type="radio" name="rdoRespuestaE" value="4" id="rdoResEAbierto"> Cuadro de texto abierto y opción NA.</label>
+            <br><br>
+          <!--    <div class="row">
+              <div class="col-md-4">
+                <label class="checkbox-inline"><input type="checkbox" id="chkRespuesta" value="">No aplica</label>
+              </div>
+              <div class="col-md-6">
+                  <input type="text" class="form-control input-sm" id="txtRespuesta" placeholder="Respuesta" maxlength="500" spellcheck="true">
+              </div>
+            </div>
+            -->
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group text-center">
+            <label><input type="radio" name="rdoRespuestaE" value="5" id="rdoResECerrado"> Lista cerrada: SI/NO/NA</label>.
+            <br><br>
+            <div class="col-md-6 col-md-offset-3">
+              <select name="" id="slcResCorrectaE" class="form-control input-sm">
+                <option value="0">Seleccione respuesta correcta</option>
+                <option value="1">SI</option>
+                <option value="2">NO</option>
+              <!--    <option value="0">NO APLICA</option>
+              -->
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <hr>
 
       <div class="form-group">
         <div class="col-md-9 col-md-offset-3">

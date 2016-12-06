@@ -21,7 +21,11 @@ var
     chkRespuesta=$('#chkRespuesta'),
     txtRespuesta=$('#txtRespuesta'),
     slcResCorrecta=$('#slcResCorrecta'),
-    rdoRespuesta = document.getElementsByName("rdoRespuesta");
+    rdoRespuesta = document.getElementsByName("rdoRespuesta"),
+    rdoRespuestaE = document.getElementsByName("rdoRespuestaE"),
+    rdoResEAbierto = $('#rdoResEAbierto'),
+    rdoResECerrado = $('#rdoResECerrado'),
+    slcResCorrectaE =$('#slcResCorrectaE');
 
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
@@ -366,6 +370,21 @@ function getSubtemasTema(){
                 slcCategoriaE.val(o.preCategoria);
               });
 
+              if ((o.preLista1 == 1) || (o.preLista1 == 2)) {       //  para marcar respuesta
+
+                slcResCorrectaE.find('option').each(function(){
+                if ( o.preLista1 == $(this).val() )
+                  slcResCorrectaE.val(o.preLista1);
+                });
+
+                rdoResECerrado.prop('checked',true);
+                rdoResEAbierto.prop('checked',false);
+              }
+              if (o.preLista1 == 4) {
+                rdoResECerrado.prop('checked',false);
+                rdoResEAbierto.prop('checked', true);
+              }
+
             });
         }else{
           txtSubtemaE.val(res.message);
@@ -580,6 +599,7 @@ function validar(){
     return false;
   }
   valorRadio = getRadioButtonSelectedValue();
+  console.log(valorRadio);
   if (valorRadio != 4){
       if (valorRadio == 5) {
         if (slcResCorrecta.val() == 0) {
@@ -588,6 +608,7 @@ function validar(){
           return false;
         }
       }
+
       else {
         swal("Debe seleccionar el tipo de respuesta.")
         slcCategoria.focus();
