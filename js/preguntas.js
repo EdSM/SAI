@@ -272,6 +272,15 @@ function getSubtemasTema(){
             if(rdoRespuesta[i].checked) return rdoRespuesta[i].value;
     }
 
+    function getRadioButtonSelectedValueE(){
+      valorR=0;
+        for(i=0;i<rdoRespuestaE.length;i++)
+
+            if(rdoRespuestaE[i].checked) {
+              return rdoRespuestaE[i].value;
+            }
+    }
+
     function agregarPregunta(){
      if (!validar()) {
         return false;
@@ -372,9 +381,9 @@ function getSubtemasTema(){
 
               if ((o.preLista1 == 1) || (o.preLista1 == 2)) {       //  para marcar respuesta
 
-                slcResCorrectaE.find('option').each(function(){
-                if ( o.preLista1 == $(this).val() )
-                  slcResCorrectaE.val(o.preLista1);
+                slcResCorrectaE.find('option').each(function(){     //seleccionar respuesta correcta
+                  if ( o.preLista1 == $(this).val() )
+                    slcResCorrectaE.val(o.preLista1);
                 });
 
                 rdoResECerrado.prop('checked',true);
@@ -452,14 +461,22 @@ function getSubtemasTema(){
     }
 
 
-    function editarSubtema(){
-      var editar = $.ajax({
-        url: 'php/subtemas/editarSubtema.php',
-        data: {
-          idSubtema:idSubtemaE.val(),
-          nombreSubtema:txtSubtemaE.val(),
-          idTema:slcTemaE.val()
+    function editarPregunta(){
 
+      valorRadio = getRadioButtonSelectedValueE();
+      resCorrecta = valorRadio;              //si se eligio solo abierta
+      if (valorRadio == 5) {                 //radio 5 = selecciono lista cerrada
+        resCorrecta = slcResCorrectaE.val();  //obtener respusta correcta de la lista cerrada
+      }
+
+      var editar = $.ajax({
+        url: 'php/preguntas/editarPregunta.php',
+        data: {
+          idPregunta:idPreguntaE.val(),
+          idSubtema:slcSubtemaE.val(),
+          idCategoria:slcCategoriaE.val(),
+          pregunta:txtPreguntaE.val(),
+          idLista1:resCorrecta
         },
         type: 'post',
         dataType:'json',
@@ -477,7 +494,7 @@ function getSubtemasTema(){
 
         if ( resultado.status === 'OK' ){
           limpiar();
-          getSubtemas();
+          getPreguntasSubtema();
           cancelarEditar();
           swal({
             title: "",
@@ -496,7 +513,6 @@ function getSubtemasTema(){
             showConfirmButton: true
           });
         }
-
     }
 
 function cancelarEditar(){
@@ -627,7 +643,7 @@ btnLimpiar.on('click',limpiar);
 btnAgregar.on('click',agregarPregunta);
 
 btnCancelarE.on('click',cancelarEditar);
-btnAgregarE.on('click',editarSubtema);
+btnAgregarE.on('click',editarPregunta);
 
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarPregunta);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);

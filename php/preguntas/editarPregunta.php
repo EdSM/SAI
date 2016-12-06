@@ -1,15 +1,16 @@
 <?php
-
+  $idPregunta = ($_POST['idPregunta']);
   $idSubtema = ($_POST['idSubtema']);
-  $nombreSubtema = ($_POST['nombreSubtema']);
-  $idTema = ($_POST['idTema']);
+  $idCategoria = ($_POST['idCategoria']);
+  $pregunta = ($_POST['pregunta']);
+  $idLista1 = ($_POST['idLista1']);
 
 
-        if ((isset($idSubtema)) && (isset($nombreSubtema))) {
+        if ((isset($idSubtema)) && (isset($idCategoria)) && (isset($pregunta)) && (isset($idLista1)) && (isset($idPregunta))) {
 
           include('../Consultas.php');
           $Consultas = new Consultas;
-          $consulta = 'UPDATE subtemas SET subNombre = "'.$nombreSubtema.'", subTema="'.$idTema.'"  WHERE subId = '.$idSubtema.' ;';
+          $consulta = 'UPDATE preguntas SET preOracion = "'.$pregunta.'", preSubtema='.$idSubtema.', preCategoria='.$idCategoria.', preLista1='.$idLista1.'  WHERE preId = '.$idPregunta.' ;';
         //  $Consultas -> validarSesion();
           $response = $Consultas -> consultaInsertEditEliminar($consulta);
         }

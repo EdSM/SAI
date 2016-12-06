@@ -146,7 +146,7 @@
                 <div class="form-group text-center">
                   <label><input type="radio" name="rdoRespuesta" value="5"> Lista cerrada: SI/NO/NA</label>.
                   <br><br>
-                  
+
                   <div class="col-md-6 col-md-offset-3">
                     <select name="" id="slcResCorrecta" class="form-control input-sm">
                       <option value="0">Seleccione respuesta correcta</option>
@@ -187,7 +187,7 @@
       <div class="well hidden" id="formEditar">
   <div class="form-horizontal" >
     <fieldset>
-      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar subtema</legend>
+      <legend><i class="fa fa-pencil-square-o text-primary" aria-hidden="true"></i> Editar pregunta</legend>
 
       <div class="form-group">
         <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del subtema:</label>
