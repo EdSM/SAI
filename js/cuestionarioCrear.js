@@ -3,14 +3,15 @@ var btnAgregar = $('#btnAgregar'),
     btnLimpiar=$('#btnLimpiar');
 var tbodyRegistros=$('#tbodyRegistros'),
     tblRegistros=$('#tblRegistros');
-var txtSubtema=$('#txtSubtema'),
-    txtSubtemaE=$('#txtSubtemaE'),
+var txtCuestionario=$('#txtCuestionario'),
+    txtCuestionarioE=$('#txtCuestionarioE'),
     btnAgregarE=$('#btnAgregarE'),
     btnCancelarE=$('#btnCancelarE'),
     idSubtemaE=$('#idSubtemaE'),
     slcTemaE=$('#slcTemaE'),
     slcMateria=$('#slcMateria'),
-    slcTema=$('#slcTema');
+    slcTema=$('#slcTema'),
+    slcCuestionario=$('#slcCuestionario');
 var formEditar=$('#formEditar'),
     frmAgregar=$('#frmAgregar');
 
@@ -56,7 +57,7 @@ var formEditar=$('#formEditar'),
 
          });
 
-        }else{          
+        }else{
           slcTema.append(
             '<option value=0>'+res.message+'</option>'
           );
@@ -110,13 +111,56 @@ var formEditar=$('#formEditar'),
         }
     }
 
-function getSubtemasTema(){
+    function agregarCuestionario(){
+      if (!validar()) {
+        return false;
+      }
+      var editar = $.ajax({
+        url: 'php/cuestionarios/agregarCuestionario.php',
+        data: {
+          nombreCuestionario:txtCuestionario.val()
+        },
+        type: 'post',
+        dataType:'json',
+          async:false
+        }).error(function(e){
+            alert('Ocurrio un error, intente de nuevo');
+        }).responseText;
+
+        var resultado;
+        try{
+          resultado = JSON.parse(editar);
+        }catch (e){
+            alert('Error JSON ' + e);
+        }
+
+        if ( resultado.status === 'OK' ){
+          limpiar();
+          getCuestionarios();
+          swal({
+            title: "",
+            text: " ",
+            timer: 700,
+            type: "success",
+            showConfirmButton: true
+          });
+        }
+        else {
+          swal({
+            title: "",
+            text: resultado.message,
+            //timer: 800,
+            type: "error",
+            showConfirmButton: true
+          });
+        }
+    }
+
+
+function getCuestionarios(){
   var datos = $.ajax({
-    url: 'php/subtemas/getSubtemasTema.php',
-    data:{
-      idTema: slcTema.val()
-    },
-    type: 'post',
+    url: 'php/cuestionarios/getTodoCuestionarios.php',
+    type: 'get',
         dataType:'json',
         async:false
     }).error(function(e){
@@ -130,37 +174,25 @@ function getSubtemasTema(){
         alert('Error JSON ' + e);
     }
 
-    tbodyRegistros.html('');
+    slcCuestionario.html('');
+    slcCuestionario.append(
+      '<option value=0>Seleccione un cuestionario</option>'
+    );
+
     if ( res.status === 'OK' ){
 
-       var i = 1;
        $.each(res.data, function(k,o){
 
-         tbodyRegistros.append(
-           '<tr>'+
-             '<td class="">'+i+'</td>'+
-             '<td class="">'+o.subId+'</td>'+
-             '<td class="">'+o.subNombre+'</td>'+
-             '<td class="">'+o.temNombre+'</td>'+
-
-
-             '<td class="text-center">'+
-               '<span class="glyphicon glyphicon-edit text-primary" id="'+o.subId+'" '+
-               'style="cursor:pointer" title="Editar"></span>'+
-             '</td>'+
-
-             '<td class="text-center">'+
-             '<i id='+o.subId+' class="fa fa-trash text-danger" aria-hidden="true" style="cursor:pointer" title="eliminar">'+
-             '</i></td>'+
-
-           '</tr>'
-       );
-       i++
+         slcCuestionario.append(
+           '<option value='+o.cueId+'>'+o.cueNombre+'</option>'
+         );
 
      });
 
     }else{
-      tbodyRegistros.html('<tr><td colspan="8" class="center"><h3>'+ res.message +'</h3></td></tr>');
+      slcTemaE.append(
+        '<option value=0>'+res.message+'</option>'
+      );
     }
 
     //alert("cambio");
@@ -217,51 +249,6 @@ function getSubtemas(){
     }
 }
 
-    function agregarSubtema(){
-      if (!validar()) {
-        return false;
-      }
-      var editar = $.ajax({
-        url: 'php/subtemas/agregarSubtema.php',
-        data: {
-          nombreSubtema:txtSubtema.val(),
-          idTema:slcTema.val()
-        },
-        type: 'post',
-        dataType:'json',
-          async:false
-        }).error(function(e){
-            alert('Ocurrio un error, intente de nuevo');
-        }).responseText;
-
-        var resultado;
-        try{
-          resultado = JSON.parse(editar);
-        }catch (e){
-            alert('Error JSON ' + e);
-        }
-
-        if ( resultado.status === 'OK' ){
-          limpiar();
-          getSubtemasTema();
-          swal({
-            title: "",
-            text: " ",
-            timer: 700,
-            type: "success",
-            showConfirmButton: true
-          });
-        }
-        else {
-          swal({
-            title: "",
-            text: resultado.message,
-            //timer: 800,
-            type: "error",
-            showConfirmButton: true
-          });
-        }
-    }
 
 
     function seleccionarSubtema(){
@@ -288,12 +275,12 @@ function getSubtemas(){
             alert('Error JSON ' + e);
         }
 
-        txtSubtemaE.val('');
+        txtCuestionarioE.val('');
 
         idSubtemaE.val('');
         if ( res.status === 'OK' ){
             $.each(res.data, function(k,o){
-              txtSubtemaE.val(o.subNombre);
+              txtCuestionarioE.val(o.subNombre);
               idSubtemaE.val(o.subId);
 
               slcTemaE.find('option').each(function(){
@@ -303,7 +290,7 @@ function getSubtemas(){
 
             });
         }else{
-          txtSubtemaE.val(res.message);
+          txtCuestionarioE.val(res.message);
         }
     }
 
@@ -312,7 +299,7 @@ function getSubtemas(){
         url: 'php/subtemas/editarSubtema.php',
         data: {
           idSubtema:idSubtemaE.val(),
-          nombreSubtema:txtSubtemaE.val(),
+          nombreSubtema:txtCuestionarioE.val(),
           idTema:slcTemaE.val()
 
         },
@@ -361,7 +348,7 @@ function cancelarEditar(){
 }
 
 function limpiar(){
-  txtSubtema.val('');
+  txtCuestionario.val('');
 }
 
 function eliminarSubtema(id){
@@ -462,8 +449,8 @@ function getMaterias(){
 }
 
 function validar(){
-  if ((txtSubtema.val()==null)||(txtSubtema.val()=='')) {
-    txtSubtema.focus();
+  if ((txtCuestionario.val()==null)||(txtCuestionario.val()=='')) {
+    txtCuestionario.focus();
     swal("Debe ingresar el nombre del subtema.")
     return false;
   }
@@ -474,11 +461,11 @@ function validar(){
 $(document).on('ready', function(){
 //  getSubtemas();
 //  getTemas();
-  getMaterias();
+  getCuestionarios();
 });
 
 btnLimpiar.on('click',limpiar);
-btnAgregar.on('click',agregarSubtema);
+btnAgregar.on('click',agregarCuestionario);
 
 btnCancelarE.on('click',cancelarEditar);
 btnAgregarE.on('click',editarSubtema);
@@ -486,5 +473,5 @@ btnAgregarE.on('click',editarSubtema);
 tbodyRegistros.delegate('.glyphicon-edit', 'click', seleccionarSubtema);
 tbodyRegistros.delegate('.fa-trash', 'click', eliminar);
 
-slcTema.on('change',getSubtemasTema);
+slcTema.on('change',getCuestionarios);
 slcMateria.on('change', getTemaMateria)

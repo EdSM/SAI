@@ -274,7 +274,7 @@
               <thead>
                 <tr>
                   <th class="">No.</th>
-                  <th class="">Id</th>
+                <!--    <th class="">Id</th> -->
                   <th class="col-md-5">Preguntas</th>
                   <th class="col-md-2">Subtema</th>
                   <th class="col-md-2">Categoría</th>

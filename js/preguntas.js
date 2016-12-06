@@ -433,7 +433,7 @@ function getSubtemasTema(){
              tbodyRegistros.append(
                '<tr>'+
                  '<td class="">'+i+'</td>'+
-                 '<td class="">'+o.preId+'</td>'+
+                //  '<td class="">'+o.preId+'</td>'+
                  '<td class="">'+o.preOracion+'</td>'+
                  '<td class="">'+o.subNombre+'</td>'+
                  '<td class="">'+o.catNombre+'</td>'+

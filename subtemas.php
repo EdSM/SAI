@@ -81,7 +81,7 @@
             <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar Subtemas</legend>
 
             <div class="form-group">
-              <label for="slctMateria" class="col-md-2 control-label">Saleccionar materia:</label>
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar materia:</label>
               <div class="col-md-10">
                 <select name="" id="slcMateria" class="form-control input-sm">
                   </select>

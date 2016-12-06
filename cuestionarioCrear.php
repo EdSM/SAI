@@ -74,6 +74,55 @@
               <div id="contenidoUsuario">
 
             <!-- ******************************************************** -->
+            <div class="well" id="frmAgregar">
+        <div class="form-horizontal" >
+          <fieldset>
+
+
+              <legend><span class="glyphicon glyphicon-plus text-primary"></span> Agregar nuevo cuestionario</legend>
+
+            <div class="form-group">
+              <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del cuestionario:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control input-sm" id="txtCuestionario" placeholder="ingresar nombre del cuestionario" maxlength="500" spellcheck="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-9 col-md-offset-3">
+                <div class="row">
+                  <div class="col-md-4">
+                      <button class="btn btn-primary btn-md" id="btnAgregar"><span class="glyphicon glyphicon-floppy-disk"></span> Agregar</button>
+                  </div>
+                  <!--  <div class="col-md-4">
+                      <button class="btn btn-primary btn-md" id="btnLimpiar"><i class="fa fa-eraser" aria-hidden="true"></i> Limpiar</button>
+                  </div>
+                  -->
+                  <div class="col-md-4">
+                      <button class="btn btn-danger btn-md" id="btnLimpiar"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
+                  </div>
+                </div>
+                <input type="hidden" name="_token" id="_token" >
+              </div>
+            </div>
+
+            <br>
+            <legend><span class="glyphicon glyphicon-plus text-primary"></span> Cuestionarios existentes:</legend>
+            <div class="form-group">
+              <label for="slctMateria" class="col-md-2 control-label">Seleccionar cuestionario:</label>
+              <div class="col-md-10">
+                <select name="" id="slcCuestionario" class="form-control input-sm">
+                  </select>
+              </div>
+            </div>
+
+
+            <br>
+
+          </fieldset>
+        </div>
+      </div>  <!-- /well -->
+
 
             <div class="well" id="frmAgregar">
         <div class="form-horizontal" >
@@ -99,7 +148,7 @@
             <div class="form-group">
               <label for="txtNombreRev" class="col-md-2 control-label"> Título del Subtema:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control input-sm" id="txtSubtema" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
+                <input type="text" class="form-control input-sm" id="txtCuestionario" placeholder="Nombre de la materia" maxlength="500" spellcheck="true">
               </div>
             </div>
 
@@ -136,7 +185,7 @@
       <div class="form-group">
         <label for="txtNombreRev" class="col-md-2 control-label"> Nombre del subtema:</label>
         <div class="col-md-10">
-          <input type="text" class="form-control input-sm" id="txtSubtemaE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
+          <input type="text" class="form-control input-sm" id="txtCuestionarioE" placeholder="Ingrese tema" maxlength="500" spellcheck="true">
         </div>
       </div>
 
